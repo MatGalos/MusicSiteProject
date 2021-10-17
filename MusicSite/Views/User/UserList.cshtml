@@ -1,0 +1,38 @@
+﻿@model ICollection<MusicSite.Models.User>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Liczba Użytkowników: @Model.Count</h1>
+<table>
+    <tr>
+        <th>name</th>
+        <th>lastName</th>
+        <th>eMail</th>
+        <th>creationDate</th>
+        <th>numberOfReviews</th>
+    </tr>
+    <tbody>
+        @foreach(var u in @Model)
+            {
+        <tr>
+            <td>
+                @u.name
+            </td>
+            <td>
+                @u.lastName
+            </td>
+            <td>
+                @u.eMail
+            </td>
+            <td>
+                @u.creationDate
+            </td>
+            <td>
+                @u.numberOfReviews
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>

@@ -7,11 +7,13 @@
 <h1>Liczba Użytkowników: @Model.Count</h1>
 <table>
     <tr>
-        <th>name</th>
-        <th>lastName</th>
-        <th>eMail</th>
-        <th>creationDate</th>
-        <th>numberOfReviews</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>E-Mail address</th>
+        <th>Date of Birth</th>
+        <th>Number of Reviews</th>
     </tr>
     <tbody>
         @foreach(var u in @Model)
@@ -22,6 +24,12 @@
             </td>
             <td>
                 @u.lastName
+            </td>
+            <td>
+                @u.userName
+            </td>
+            <td>
+                @u.password
             </td>
             <td>
                 @u.eMail

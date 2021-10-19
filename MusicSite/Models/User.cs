@@ -12,7 +12,12 @@ namespace MusicSite.Models
         public string name { get; set; }
         [Required(ErrorMessage = "Podaj nazwisko")]
         public string lastName { get; set; }
-        [RegularExpression(".+\\@.+\\.[a-z]{2,3}")]
+        [RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$", ErrorMessage ="Hasło nie spełnia wymogów bezpieczeństwa")]
+        [Required(ErrorMessage ="Podaj Hasło")]
+        public string password { get; set; }
+        [Required(ErrorMessage = "Podaj nazwę użytkownika")]
+        public string userName { get; set; }
+        [RegularExpression(".+\\@.+\\.[a-z]{2,3}",ErrorMessage ="E-Mail nie spełnia wymogów adresu e-mail")]
         [Required(ErrorMessage = "Podaj adres email")]
         public string eMail { get; set; }
         [Required(ErrorMessage = "Podaj datę urodzenia")]

@@ -4,7 +4,35 @@
 *@
 @{
 }
-<h1>Liczba Użytkowników: @Model.Count</h1>
+<style>
+    th {
+        font-size: 25px;
+        width: 15%;
+        border-bottom: 2px solid black;
+    }
+
+    .blue {
+        background-color: lightsteelblue;
+    }
+
+    .white {
+        background-color: floralwhite;
+    }
+
+    .modify {
+        background-color: #7a80f0;
+    }
+
+    .delete {
+        background-color: #f04343;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<h1> Konta naszych użytkowników:</h1>
 <table>
     <tr>
         <th>First Name</th>
@@ -14,33 +42,76 @@
         <th>E-Mail address</th>
         <th>Date of Birth</th>
         <th>Number of Reviews</th>
+        <th></th>
+        <th></th>
     </tr>
     <tbody>
-        @foreach(var u in @Model)
+        @foreach (var u in @Model)
+        {
+            if (@u.Id % 2 == 0)
             {
-        <tr>
-            <td>
-                @u.name
-            </td>
-            <td>
-                @u.lastName
-            </td>
-            <td>
-                @u.userName
-            </td>
-            <td>
-                @u.password
-            </td>
-            <td>
-                @u.eMail
-            </td>
-            <td>
-                @u.creationDate
-            </td>
-            <td>
-                @u.numberOfReviews
-            </td>
-        </tr>
+                <tr class="white">
+                    <td>
+                        @u.name
+                    </td>
+                    <td>
+                        @u.lastName
+                    </td>
+                    <td>
+                        @u.userName
+                    </td>
+                    <td>
+                        @u.password
+                    </td>
+                    <td>
+                        @u.eMail
+                    </td>
+                    <td>
+                        @u.creationDate.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @u.numberOfReviews
+                    </td>
+                    <td>
+                        <a class="modify" asp-route="@u.Id">Modyfikuj</a>
+                    </td>
+                    <td>
+                        <a class="delete" asp-controller="User" asp-action="DeleteUser" asp-route-Id="@u.Id">Usuń</a>
+                    </td>
+                </tr>
             }
+            else
+            {
+                <tr class="blue">
+                    <td>
+                        @u.name
+                    </td>
+                    <td>
+                        @u.lastName
+                    </td>
+                    <td>
+                        @u.userName
+                    </td>
+                    <td>
+                        @u.password
+                    </td>
+                    <td>
+                        @u.eMail
+                    </td>
+                    <td>
+                        @u.creationDate.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @u.numberOfReviews
+                    </td>
+                    <td>
+                        <a class="modify" asp-route="@u.Id">Modyfikuj</a>
+                    </td>
+                    <td>
+                        <a class="delete" asp-controller="User" asp-action="DeleteUser" asp-route-Id="@u.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>

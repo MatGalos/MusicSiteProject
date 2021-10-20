@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace MusicSite.Models
 {
     public class User //Klasa User do której stworzenia potrzeba imie nazwisko nazwa użytkownika data urodzenia adres email, automatycznie serwer aktualizuję datę stworzenia, liczbę recenzji, liczbę komentarzy oraz średnią wystawionych ocen
     {
+        [HiddenInput]
+        public int Id { get; set; }
         [Required(ErrorMessage ="Podaj imię")]
         public string name { get; set; }
         [Required(ErrorMessage = "Podaj nazwisko")]
@@ -23,5 +26,15 @@ namespace MusicSite.Models
         [Required(ErrorMessage = "Podaj datę urodzenia")]
         public DateTime creationDate { get; set; }
         public int numberOfReviews { get; set; }
+        public DateTime accountCreationDate { get; set; }
+        /*public enum levelOfAccount
+        {
+            Free=1,
+            Premium=2,
+            VIP=3,
+            Artist=4,
+            Moderator=5,
+            Admin=6
+        }*/
     }
 }

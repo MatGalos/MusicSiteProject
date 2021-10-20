@@ -1,0 +1,12 @@
+﻿body {
+}
+
+input{
+    border-top-style:hidden;
+    border-left-style:hidden;
+    border-right-style:hidden;
+}
+
+input:focus {
+    outline: #adb8b0;
+}

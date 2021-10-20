@@ -23,25 +23,29 @@
         color:red;
         font:bold;
     }
-    .input-validation-error{
-        border-bottom-color:red;
-        background-color:#d84949;
+    .input-validation-error {
+        border-bottom-color: red;
+        background-color: #edafaf;
     }
 </style>
 
 <form asp-action="RecieveUser" method="post">
+    <div><span asp-validation-for="name"></span></div>
     <label>First Name</label>
     <input asp-for="name" /><br />
+    <div><span asp-validation-for="lastName"></span></div>
     <label>Last Name</label>
-    <input asp-for="lastName" /><br/>
+    <input asp-for="lastName" /><br />
+    <div><span asp-validation-for="userName"></span></div>
     <label>User Name</label>
     <input asp-for="userName" /><br />
     <div><span asp-validation-for="password"></span></div>
     <label>Password</label>
-    <input asp-for="password" type="password"/><br />
+    <input asp-for="password" type="password" /><br />
     <div><span asp-validation-for="eMail"></span></div>
     <label>E-Mail Address</label>
     <input asp-for="eMail" /><br />
+    <div><span asp-validation-for="creationDate"></span></div>
     <label>Date of birth</label>
     <input asp-for="creationDate" /><br />
     <label>Number of reviews</label>

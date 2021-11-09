@@ -40,6 +40,7 @@ namespace MusicSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                u.Id = counter;
                 listOfUsers.Add(u);
                 counter++;
                 return View("UserList", listOfUsers);
@@ -66,22 +67,26 @@ namespace MusicSite.Controllers
 
         public IActionResult ModifyUserList(User u)
         {
-            User a = listOfUsers.First(x => x.Id == u.Id);
-            User c = new User()
+            if (ModelState.IsValid)
             {
-                name = a.name,
-                lastName = a.lastName,
-                userName = u.userName,
-                Id = a.Id,
-                password = u.password,
-                creationDate = a.creationDate,
-                eMail = u.eMail,
-                numberOfReviews = a.numberOfReviews,
-                accountCreationDate = a.accountCreationDate,
-            };
-            listOfUsers.Remove(listOfUsers.First(a => a.Id == c.Id));
-            listOfUsers.Insert(c.Id, c);
-            return View("UserList", listOfUsers);
+                User a = listOfUsers.First(x => x.Id == u.Id);
+                User c = new User()
+                {
+                    name = a.name,
+                    lastName = a.lastName,
+                    userName = u.userName,
+                    Id = a.Id,
+                    password = u.password,
+                    creationDate = a.creationDate,
+                    eMail = u.eMail,
+                    numberOfReviews = a.numberOfReviews,
+                    accountCreationDate = a.accountCreationDate,
+                };
+                listOfUsers.Remove(listOfUsers.First(a => a.Id == c.Id));
+                listOfUsers.Insert(c.Id, c);
+                return View("UserList", listOfUsers);
+            }
+            else return View("ModifyUser", u);
         }
     }
 }

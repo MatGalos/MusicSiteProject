@@ -17,6 +17,7 @@ namespace MusicSite.Models
         public string lastName { get; set; }
         [RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$", ErrorMessage ="Hasło nie spełnia wymogów bezpieczeństwa")]
         [Required(ErrorMessage ="Podaj Hasło")]
+        [DataType(DataType.Password)]
         public string password { get; set; }
         [Required(ErrorMessage = "Podaj nazwę użytkownika")]
         public string userName { get; set; }

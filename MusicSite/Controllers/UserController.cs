@@ -60,7 +60,28 @@ namespace MusicSite.Controllers
         }
         public IActionResult ModifyUser(int Id) //For modyfing user
         {
-            return View();
+            User mod = listOfUsers.Find(x => x.Id == Id);
+            return View("ModifyUser",mod);
+        }
+
+        public IActionResult ModifyUserList(User u)
+        {
+            User a = listOfUsers.First(x => x.Id == u.Id);
+            User c = new User()
+            {
+                name = a.name,
+                lastName = a.lastName,
+                userName = u.userName,
+                Id = a.Id,
+                password = u.password,
+                creationDate = a.creationDate,
+                eMail = u.eMail,
+                numberOfReviews = a.numberOfReviews,
+                accountCreationDate = a.accountCreationDate,
+            };
+            listOfUsers.Remove(listOfUsers.First(a => a.Id == c.Id));
+            listOfUsers.Insert(c.Id, c);
+            return View("UserList", listOfUsers);
         }
     }
 }

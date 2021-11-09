@@ -73,7 +73,7 @@
                         @u.numberOfReviews
                     </td>
                     <td>
-                        <a class="modify" asp-route="@u.Id">Modyfikuj</a>
+                        <a class="modify" asp-controller="User" asp-action="ModifyUser" asp-route-Id="@u.Id">Modyfikuj</a>
                     </td>
                     <td>
                         <a class="delete" asp-controller="User" asp-action="DeleteUser" asp-route-Id="@u.Id">Usuń</a>
@@ -105,7 +105,7 @@
                         @u.numberOfReviews
                     </td>
                     <td>
-                        <a class="modify" asp-route="@u.Id">Modyfikuj</a>
+                        <a class="modify" asp-controller="User" asp-action="ModifyUser" asp-route-Id="@u.Id">Modyfikuj</a>
                     </td>
                     <td>
                         <a class="delete" asp-controller="User" asp-action="DeleteUser" asp-route-Id="@u.Id">Usuń</a>

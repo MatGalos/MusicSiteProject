@@ -9,7 +9,16 @@ namespace MusicSite.Controllers
 {
     public class UserController : Controller
     {
-        static List<User> listOfUsers = new List<User>() //dummy data
+        private IUserRepository repository;
+        public UserController(IUserRepository repository)
+        {
+            this.repository = repository;
+        }
+        public ViewResult Index1()
+        {
+            return View(repository.Users);
+        }
+        /*static List<User> listOfUsers = new List<User>() //dummy data
         {
             new User()
             {
@@ -26,16 +35,16 @@ namespace MusicSite.Controllers
 
             }
         };
-        static int counter = listOfUsers.Count();
+        static int counter = listOfUsers.Count();*/
         public IActionResult Index()
         {
-            return View();
+            return View("UserList",repository.Users);
         }
         public IActionResult AddForm()
         {
             return View();
         }
-        public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
+       /* public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
             //inform about successfuly creating account.
         {
             if (ModelState.IsValid)
@@ -49,11 +58,11 @@ namespace MusicSite.Controllers
             {
                 return View("AddForm");
             }
-        }
+        }*/
         public IActionResult UserListView() //for seeing list of users
         {
-            return View("UserList", listOfUsers);
-        }
+            return View("UserList", repository.Users.ToList());
+        }/*
         public IActionResult DeleteUser(int Id) //For deleting user
         {
             listOfUsers.Remove(listOfUsers.First(a => a.Id == Id));
@@ -87,6 +96,6 @@ namespace MusicSite.Controllers
                 return View("UserList", listOfUsers);
             }
             else return View("ModifyUser", u);
-        }
+        }*/
     }
 }

@@ -26,6 +26,7 @@ namespace MusicSite.Models
         public string eMail { get; set; }
         [Required(ErrorMessage = "Podaj datę urodzenia")]
         public DateTime creationDate { get; set; }
+        public ICollection<Review> userReviews { get; set; } = new List<Review>();
         public int numberOfReviews { get; set; }
         public DateTime accountCreationDate { get; set; }
         /*public enum levelOfAccount

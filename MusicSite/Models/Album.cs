@@ -15,6 +15,7 @@ namespace MusicSite.Models
         public string albumName { get; set; }
         public DateTime releaseDate { get; set; }
         public string artistName { get; set; }
-        public List<Track> albumTrackList { get; set; }
+        public ICollection<Track> albumTrackList { get; set; } = new List<Track>();
+        public ICollection<Review> albumReviews { get; set; } = new List<Review>();
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicSite.Models;
+using MusicSite.Models.CRUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace MusicSite
             services.AddTransient<IUserRepository, EFUserRepository>();
             services.AddTransient<IAlbumRepository, EFUserRepository>();
             services.AddTransient<IReviewRepository, EFUserRepository>();
+            services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
+            services.AddTransient<IUserUserRepository, UserUserRepository>();
             services.AddControllersWithViews();
         }
 

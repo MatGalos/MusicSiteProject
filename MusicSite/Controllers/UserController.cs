@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicSite.Models;
+using MusicSite.Models.CRUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,93 +10,59 @@ namespace MusicSite.Controllers
 {
     public class UserController : Controller
     {
-        private IUserRepository repository;
-        public UserController(IUserRepository repository)
+        private ICRUDUserRepository repository;
+        public UserController(ICRUDUserRepository repository)
         {
             this.repository = repository;
         }
         public ViewResult Index1()
         {
-            return View(repository.Users);
+            return View(repository.FindAll());
         }
-        /*static List<User> listOfUsers = new List<User>() //dummy data
-        {
-            new User()
-            {
-                name="Mateusz",lastName="Galos", userName="Magick99",
-                Id=0,password="sdjhgf92vlsQ!",creationDate=DateTime.Parse("1999-09-22"),
-                eMail="mag99@spoko.pl", numberOfReviews=10, accountCreationDate=DateTime.Now,
-                
-            },
-            new User()
-            {
-                name="Alan",lastName="Galos", userName="Magick99",
-                Id=1,password="sdjhgf92vlsQ!",creationDate=DateTime.Parse("1999-09-22"),
-                eMail="mag99@spoko.pl", numberOfReviews=10, accountCreationDate=DateTime.Now,
 
-            }
-        };
-        static int counter = listOfUsers.Count();*/
         public IActionResult Index()
         {
-            return View("UserList",repository.Users);
+            return View("UserList",repository.FindAll());
         }
         public IActionResult AddForm()
         {
             return View();
         }
-       /* public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
+       public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
             //inform about successfuly creating account.
         {
             if (ModelState.IsValid)
             {
-                u.Id = counter;
-                listOfUsers.Add(u);
-                counter++;
-                return View("UserList", listOfUsers);
+                repository.Add(u);
+                return View("UserList", repository.FindAll());
             }
             else
             {
                 return View("AddForm");
             }
-        }*/
+        }
         public IActionResult UserListView() //for seeing list of users
         {
-            return View("UserList", repository.Users.ToList());
-        }/*
+            return View("UserList", repository.FindAll());
+        }
         public IActionResult DeleteUser(int Id) //For deleting user
         {
-            listOfUsers.Remove(listOfUsers.First(a => a.Id == Id));
-            return View("UserList", listOfUsers);
+            repository.Delete(Id);
+            return View("UserList", repository.FindAll());
         }
-        public IActionResult ModifyUser(int Id) //For modyfing user
+        public IActionResult ModifyUser(int Id) //For finding user to modify
         {
-            User mod = listOfUsers.Find(x => x.Id == Id);
+            User mod = repository.Find(Id);
             return View("ModifyUser",mod);
         }
-
-        public IActionResult ModifyUserList(User u)
+        public IActionResult ModifyUserList(User u) //For modyfing user
         {
             if (ModelState.IsValid)
-            {
-                User a = listOfUsers.First(x => x.Id == u.Id);
-                User c = new User()
-                {
-                    name = a.name,
-                    lastName = a.lastName,
-                    userName = u.userName,
-                    Id = a.Id,
-                    password = u.password,
-                    creationDate = a.creationDate,
-                    eMail = u.eMail,
-                    numberOfReviews = a.numberOfReviews,
-                    accountCreationDate = a.accountCreationDate,
-                };
-                listOfUsers.Remove(listOfUsers.First(a => a.Id == c.Id));
-                listOfUsers.Insert(c.Id, c);
-                return View("UserList", listOfUsers);
+            { 
+                repository.Update(u);
+                return View("UserList", repository.FindAll());
             }
             else return View("ModifyUser", u);
-        }*/
+        }
     }
 }

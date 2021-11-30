@@ -37,13 +37,13 @@ Modify Your E-Mail, User Name and password @Model.name
 <form asp-action="ModifyUserList" method="post">
     <div><span asp-validation-for="userName"></span></div>
     <label>User Name</label>
-    <input asp-for="userName" value="@Model.userName" /><br />
+    <input asp-for="userName"  /><br />
     <div><span asp-validation-for="password"></span></div>
     <label>Password</label>
-    <input asp-for="password" type="password"  value="@Model.password"/><br />
+    <input asp-for="password"  /><br />
     <div><span asp-validation-for="eMail"></span></div>
     <label>E-Mail Address</label>
-    <input asp-for="eMail" value="@Model.eMail"/><br />
+    <input asp-for="eMail" /><br />
     <input asp-for="Id" value="@Model.Id" type="hidden" />
     <button type="submit">Zapisz</button>
 </form>

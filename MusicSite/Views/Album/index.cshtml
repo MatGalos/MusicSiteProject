@@ -1,0 +1,83 @@
+﻿@model ICollection<MusicSite.Models.Album>
+@{
+    int page = (int)ViewData["page"];
+
+    int next = page + 1;
+    int prev = page - 1;
+}
+
+<style>
+    th {
+        font-size: 25px;
+        width: 15%;
+        border-bottom: 2px solid black;
+    }
+
+    .blue {
+        background-color: lightsteelblue;
+    }
+
+    .white {
+        background-color: floralwhite;
+    }
+
+    .modify {
+        background-color: #7a80f0;
+    }
+
+    .delete {
+        background-color: #f04343;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<h1>Lista Albumów</h1>
+<table>
+    <tr>
+        <th>Tytuł</th>
+        <th>Rok wydania</th>
+        <th>Autor</th>
+    </tr>
+    <tbody>
+        @foreach (var a in @Model)
+        {
+            if (a.ID % 2 == 1)
+            {
+                <tr class="white">
+                    <td>
+                        @a.albumName
+                    </td>
+                    <td>
+                        @a.releaseDate
+                    </td>
+                    <td>
+                        @a.artistName
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr class="blue">
+                    <td>
+                        @a.albumName
+                    </td>
+                    <td>
+                        @a.releaseDate
+                    </td>
+                    <td>
+                        @a.artistName
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-controller="Album" asp-action="index" asp-route-page="@prev">poprzednia strona</a>
+<a class="btn btn-primary" asp-controller="Album" asp-action="index" asp-route-page="@next">następna strona</a>
+
+

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static MusicSite.Models.User;
 
 namespace MusicSite.Controllers
 {
@@ -22,14 +23,14 @@ namespace MusicSite.Controllers
 
         public IActionResult Index()
         {
-            return View("UserList",repository.FindAll());
+            return View("UserList", repository.FindAll());
         }
         public IActionResult AddForm()
         {
             return View();
         }
-       public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
-            //inform about successfuly creating account.
+        public IActionResult RecieveUser(User u) //adding new user through the form if it's wrong it come back to form with info about wrong data, if it's correct it should 
+                                                 //inform about successfuly creating account.
         {
             if (ModelState.IsValid)
             {
@@ -50,19 +51,21 @@ namespace MusicSite.Controllers
             repository.Delete(Id);
             return View("UserList", repository.FindAll());
         }
+        [HttpGet]
         public IActionResult ModifyUser(int Id) //For finding user to modify
         {
             User mod = repository.Find(Id);
-            return View("ModifyUser",mod);
+            return View(model:mod);
         }
-        public IActionResult ModifyUserList(User u) //For modyfing user
+        [HttpPost]
+        public IActionResult ModifyUser(User u) //For modyfing user
         {
             if (ModelState.IsValid)
             { 
                 repository.Update(u);
-                return View("UserList", repository.FindAll());
+                return UserListView();
             }
-            else return View("ModifyUser", u);
+            else return View("ModifyUser");
         }
     }
 }

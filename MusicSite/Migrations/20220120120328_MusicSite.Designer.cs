@@ -10,8 +10,8 @@ using MusicSite.Models;
 namespace MusicSite.Migrations
 {
     [DbContext(typeof(AppDataBase))]
-    [Migration("20211109132533_test")]
-    partial class test
+    [Migration("20220120120328_MusicSite")]
+    partial class MusicSite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,6 +78,9 @@ namespace MusicSite.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("AlbumID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrackNumberInAlbum")
                         .HasColumnType("int");
 
                     b.Property<int>("trackLength")

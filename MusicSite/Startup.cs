@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static MusicSite.Models.User;
+using static MusicSite.Models.Album;
+using static MusicSite.Models.Review;
+using static MusicSite.Models.Track;
 
 namespace MusicSite
 {
@@ -31,6 +35,7 @@ namespace MusicSite
             services.AddTransient<IAlbumRepository, EFUserRepository>();
             services.AddTransient<IReviewRepository, EFUserRepository>();
             services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
+            services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
             services.AddTransient<IUserUserRepository, UserUserRepository>();
             services.AddControllersWithViews();
         }

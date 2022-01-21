@@ -10,6 +10,7 @@ namespace MusicSite.Models
     public class Track
     {
         public int ID { get; set; }
+        public int TrackNumberInAlbum { get; set; }
         public string trackTitle { get; set; }
         public int trackLength { get; set; }
     }

@@ -78,6 +78,9 @@ namespace MusicSite.Migrations
                     b.Property<int?>("AlbumID")
                         .HasColumnType("int");
 
+                    b.Property<int>("TrackNumberInAlbum")
+                        .HasColumnType("int");
+
                     b.Property<int>("trackLength")
                         .HasColumnType("int");
 

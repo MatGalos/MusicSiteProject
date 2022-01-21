@@ -5,7 +5,7 @@
 *@
 @{
 }
-Modify Your E-Mail, User Name and password @Model.name
+@*Modify Your E-Mail, User Name and password @Model.name*@
 <style>
     input {
         border-top-style: hidden;
@@ -34,7 +34,7 @@ Modify Your E-Mail, User Name and password @Model.name
     }
 </style>
 
-<form asp-action="ModifyUserList" method="post">
+<form asp-action="ModifyUser" method="post">
     <div><span asp-validation-for="userName"></span></div>
     <label>User Name</label>
     <input asp-for="userName"  /><br />
@@ -44,6 +44,6 @@ Modify Your E-Mail, User Name and password @Model.name
     <div><span asp-validation-for="eMail"></span></div>
     <label>E-Mail Address</label>
     <input asp-for="eMail" /><br />
-    <input asp-for="Id" value="@Model.Id" type="hidden" />
+    <input asp-for="Id" type="hidden" />
     <button type="submit">Zapisz</button>
 </form>

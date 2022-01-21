@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicSite.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class MusicSite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,7 @@ namespace MusicSite.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    TrackNumberInAlbum = table.Column<int>(type: "int", nullable: false),
                     trackTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     trackLength = table.Column<int>(type: "int", nullable: false),
                     AlbumID = table.Column<int>(type: "int", nullable: true)

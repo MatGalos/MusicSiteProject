@@ -47,31 +47,33 @@
         {
             if (a.ID % 2 == 1)
             {
-                <tr class="white">
-                    <td>
-                        @a.albumName
-                    </td>
-                    <td>
-                        @a.releaseDate
-                    </td>
-                    <td>
-                        @a.artistName
-                    </td>
-                </tr>
+        <tr class="white">
+            <td>
+                @a.albumName
+            </td>
+            <td>
+                @a.releaseDate
+            </td>
+            <td>
+                @a.artistName
+            </td>
+            <td><a class="modify" asp-controller="Album" asp-action="SingleAlbum" asp-route-id="@a.ID">Pokaz</a></td>
+        </tr>
             }
             else
             {
-                <tr class="blue">
-                    <td>
-                        @a.albumName
-                    </td>
-                    <td>
-                        @a.releaseDate
-                    </td>
-                    <td>
-                        @a.artistName
-                    </td>
-                </tr>
+    <tr class="blue">
+        <td>
+            @a.albumName
+        </td>
+        <td>
+            @a.releaseDate
+        </td>
+        <td>
+            @a.artistName
+        </td>
+        <td><a class="modify" asp-controller="Album" asp-action="SingleAlbum" asp-route-id="@a.ID">Pokaz</a></td>
+    </tr>
             }
         }
     </tbody>

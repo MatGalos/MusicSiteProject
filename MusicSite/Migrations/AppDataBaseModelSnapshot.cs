@@ -37,7 +37,7 @@ namespace MusicSite.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Albums");
+                    b.ToTable("Album");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Review", b =>
@@ -65,7 +65,7 @@ namespace MusicSite.Migrations
 
                     b.HasIndex("userID");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Track", b =>
@@ -115,6 +115,9 @@ namespace MusicSite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("levelOfAccount")
+                        .HasColumnType("int");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -132,7 +135,7 @@ namespace MusicSite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Review", b =>

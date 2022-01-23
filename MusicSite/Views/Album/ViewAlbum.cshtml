@@ -1,0 +1,18 @@
+﻿@model MusicSite.Models.Album
+<p>@Model.albumName</p>
+<p>@Model.artistName</p>
+<p>@Model.releaseDate</p>
+<p>TrackList</p>
+@foreach(var track in Model.albumTrackList)
+            {
+                <p>@track.TrackNumberInAlbum</p>
+                <p>@track.trackTitle</p>
+                <p>@track.trackLength</p>
+            }
+<p>Recenzje</p>
+@foreach(var review in Model.albumReviews)
+            {
+                <p>@review.userID</p>
+                <p>@review.rating</p>
+                <p>@review.reviewText</p>
+            }

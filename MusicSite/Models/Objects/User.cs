@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace MusicSite.Models
 {
+    public enum levelOfAccount
+        {
+            user,
+            admin,
+        }
     public class User //Klasa User do której stworzenia potrzeba imie nazwisko nazwa użytkownika data urodzenia adres email, automatycznie serwer aktualizuję datę stworzenia, liczbę recenzji, liczbę komentarzy oraz średnią wystawionych ocen
     {
+        [Key]
         [HiddenInput]
         public int Id { get; set; }
         [Required(ErrorMessage ="Podaj imię")]
@@ -27,15 +33,11 @@ namespace MusicSite.Models
         [Required(ErrorMessage = "Podaj datę urodzenia")]
         [DataType(DataType.Date)]
         public DateTime creationDate { get; set; }
-        public ICollection<Review> userReviews { get; set; } = new List<Review>();
-        public int numberOfReviews { get; set; }
+        public ICollection<Review> userReviews { get; set; }
         [DataType(DataType.Date)]
         public DateTime accountCreationDate { get; set; } = DateTime.Now;
-        /*public enum levelOfAccount
-        {
-            user,
-            admin,
-        }*/
+        public levelOfAccount levelOfAccount { get; set; }
+        
 
         public interface ICRUDUserRepository
         {
@@ -63,19 +65,21 @@ namespace MusicSite.Models
 
             public User Delete(int id)
             {
-                var user = _context.Users.Remove(Find(id)).Entity;
+                User user = _context.Users.Remove(_context.Users.FirstOrDefault(a => a.Id == id)).Entity;
                 _context.SaveChanges();
                 return user;
             }
 
             public User Find(int id)
             {
-                return _context.Users.Find(id);
+                User entity=_context.Users.FirstOrDefault(a => a.Id == id);
+                return entity;
             }
 
             public IList<User> FindAll()
             {
-                return _context.Users.ToList();
+                List<User> entity = _context.Users.ToList();
+                return entity;
             }
 
             public User Update(User user)

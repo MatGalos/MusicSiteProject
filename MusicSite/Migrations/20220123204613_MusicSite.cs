@@ -8,7 +8,7 @@ namespace MusicSite.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Albums",
+                name: "Album",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -19,11 +19,11 @@ namespace MusicSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Albums", x => x.ID);
+                    table.PrimaryKey("PK_Album", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -35,11 +35,12 @@ namespace MusicSite.Migrations
                     eMail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     creationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     numberOfReviews = table.Column<int>(type: "int", nullable: false),
-                    accountCreationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    accountCreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    levelOfAccount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,15 +58,15 @@ namespace MusicSite.Migrations
                 {
                     table.PrimaryKey("PK_Track", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Track_Albums_AlbumID",
+                        name: "FK_Track_Album_AlbumID",
                         column: x => x.AlbumID,
-                        principalTable: "Albums",
+                        principalTable: "Album",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reviews",
+                name: "Review",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
@@ -77,29 +78,29 @@ namespace MusicSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviews", x => x.ID);
+                    table.PrimaryKey("PK_Review", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Reviews_Albums_albumID",
+                        name: "FK_Review_Album_albumID",
                         column: x => x.albumID,
-                        principalTable: "Albums",
+                        principalTable: "Album",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reviews_Users_userID",
+                        name: "FK_Review_User_userID",
                         column: x => x.userID,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_albumID",
-                table: "Reviews",
+                name: "IX_Review_albumID",
+                table: "Review",
                 column: "albumID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_userID",
-                table: "Reviews",
+                name: "IX_Review_userID",
+                table: "Review",
                 column: "userID");
 
             migrationBuilder.CreateIndex(
@@ -111,16 +112,16 @@ namespace MusicSite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Reviews");
+                name: "Review");
 
             migrationBuilder.DropTable(
                 name: "Track");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
 
             migrationBuilder.DropTable(
-                name: "Albums");
+                name: "Album");
         }
     }
 }

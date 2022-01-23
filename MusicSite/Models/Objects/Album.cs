@@ -11,13 +11,15 @@ namespace MusicSite.Models
 {
     public class Album
     {
-        [HiddenInput]
+        [Key]
         public int ID { get; set; }
         public string albumName { get; set; }
         public DateTime releaseDate { get; set; }
         public string artistName { get; set; }
         public ICollection<Track> albumTrackList { get; set; } = new List<Track>();
         public ICollection<Review> albumReviews { get; set; } = new List<Review>();
+
+
 
         public interface ICRUDAlbumRepository
         {
@@ -27,6 +29,7 @@ namespace MusicSite.Models
             Album Update(Album album);
             IList<Album> FindAll();
             IList<Album> GetPage(int Page, int perPage = 10);
+            Album SingleAlbum(int id);
         }
         public class CRUDAlbumRepository : ICRUDAlbumRepository
         {
@@ -56,6 +59,7 @@ namespace MusicSite.Models
                 return _context.Albums.Find(id);
             }
 
+
             public IList<Album> FindAll()
             {
                 return _context.Albums.ToList();
@@ -73,6 +77,18 @@ namespace MusicSite.Models
                 _context.SaveChanges();
                 return entity;
             }
+
+            public Album SingleAlbum(int id)
+            {
+                Album entity = (Album)_context.Albums
+                    .Include(a => a.albumName)
+                    .Include(a => a.artistName)
+                    .Include(a => a.releaseDate)
+                    .Include(a => a.albumReviews)
+                    .Include(a => a.albumTrackList);
+                return entity;
+            }
+
         }
     }
 }

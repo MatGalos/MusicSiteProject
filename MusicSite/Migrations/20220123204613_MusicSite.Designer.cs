@@ -10,7 +10,7 @@ using MusicSite.Models;
 namespace MusicSite.Migrations
 {
     [DbContext(typeof(AppDataBase))]
-    [Migration("20220120120328_MusicSite")]
+    [Migration("20220123204613_MusicSite")]
     partial class MusicSite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace MusicSite.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Albums");
+                    b.ToTable("Album");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Review", b =>
@@ -67,7 +67,7 @@ namespace MusicSite.Migrations
 
                     b.HasIndex("userID");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Track", b =>
@@ -117,6 +117,9 @@ namespace MusicSite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("levelOfAccount")
+                        .HasColumnType("int");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -134,7 +137,7 @@ namespace MusicSite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Review", b =>

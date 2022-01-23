@@ -33,5 +33,9 @@ namespace MusicSite.Models
             ViewData["page"] = page;
             return View("index", model: entities);
         }
+        public IActionResult SingleAlbum(int id)
+        {
+            return View(model:repository.SingleAlbum(id));
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MusicSite.Models;
 using static MusicSite.Models.User;
 
 namespace MusicSite.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private ICRUDUserRepository repository;
@@ -30,7 +32,7 @@ namespace MusicSite.Controllers
             if (ModelState.IsValid)
             {
                 repository.Add(u);
-                return View("UserList", repository.FindAll());
+                return View(this.Index());
             }
             else
             {
@@ -41,17 +43,17 @@ namespace MusicSite.Controllers
         {
             return View("UserList", repository.FindAll());
         }
-        public IActionResult DeleteUser(int Id) //For deleting user
+        /*public IActionResult DeleteUser(int Id) //For deleting user
         {
             repository.Delete(Id);
             return View("UserList", repository.FindAll());
-        }
-        [HttpGet]
+        }*/
+        /*[HttpGet]
         public IActionResult ModifyUser(int Id) //For finding user to modify
         {
             User mod = repository.Find(Id);
             return View(model:mod);
-        }
+        }*/
         [HttpPost]
         public IActionResult ModifyUser(User u) //For modyfing user
         {

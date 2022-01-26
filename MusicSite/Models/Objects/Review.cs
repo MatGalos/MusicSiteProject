@@ -14,7 +14,7 @@ namespace MusicSite.Models
         [Required]
         public int albumID { get; set; }
         [Required]
-        public int userID { get; set; }
+        public String userID { get; set; }
         [ForeignKey("userID")]
         public User author { get; set; }
         [ForeignKey("albumID")]

@@ -9,6 +9,8 @@ using static MusicSite.Models.User;
 using static MusicSite.Models.Album;
 using static MusicSite.Models.Review;
 using static MusicSite.Models.Track;
+using MusicSite.Models.Login;
+using Microsoft.AspNetCore.Identity;
 
 namespace MusicSite
 {
@@ -25,10 +27,19 @@ namespace MusicSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDataBase>(options => options.UseSqlServer(Configuration["Data:MusicSite:ConnectionStarting"]));
+
+            services.AddTransient<IDB, Ef>();
+
             services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
             services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
             services.AddTransient<ICRUDReviewRepository, CRUDReviewRepository>();
             services.AddTransient<ICRUDTrackRepository, CRUDTrackRepository>();
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AppDataBase>()
+                .AddDefaultTokenProviders();
+            services.AddSession();
+
             services.AddControllersWithViews();
         }
 
@@ -46,11 +57,13 @@ namespace MusicSite
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            
 
             app.UseRouting();
-
+            app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
@@ -58,6 +71,7 @@ namespace MusicSite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

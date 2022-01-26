@@ -12,10 +12,10 @@ namespace MusicSite.Models
         IQueryable<Album> Albums { get; }
         IQueryable<Track> Tracks { get; }
     }
-    public class EF :IDB
+    public class Ef :IDB
     {
         private AppDataBase context;    
-        public EF(AppDataBase context)
+        public Ef(AppDataBase context)
         {
             this.context = context;
         }

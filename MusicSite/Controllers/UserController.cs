@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicSite.Models;
-using MusicSite.Models.CRUD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static MusicSite.Models.User;
 
 namespace MusicSite.Controllers

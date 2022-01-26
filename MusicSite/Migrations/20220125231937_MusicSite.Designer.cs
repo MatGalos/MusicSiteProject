@@ -10,7 +10,7 @@ using MusicSite.Models;
 namespace MusicSite.Migrations
 {
     [DbContext(typeof(AppDataBase))]
-    [Migration("20220123204613_MusicSite")]
+    [Migration("20220125231937_MusicSite")]
     partial class MusicSite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,14 +77,14 @@ namespace MusicSite.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AlbumID")
+                    b.Property<int>("AlbumID")
                         .HasColumnType("int");
 
                     b.Property<int>("TrackNumberInAlbum")
                         .HasColumnType("int");
 
-                    b.Property<int>("trackLength")
-                        .HasColumnType("int");
+                    b.Property<string>("trackLength")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("trackTitle")
                         .HasColumnType("nvarchar(max)");
@@ -124,9 +124,6 @@ namespace MusicSite.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("numberOfReviews")
-                        .HasColumnType("int");
-
                     b.Property<string>("password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -142,24 +139,32 @@ namespace MusicSite.Migrations
 
             modelBuilder.Entity("MusicSite.Models.Review", b =>
                 {
-                    b.HasOne("MusicSite.Models.Album", null)
+                    b.HasOne("MusicSite.Models.Album", "album")
                         .WithMany("albumReviews")
                         .HasForeignKey("albumID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MusicSite.Models.User", null)
+                    b.HasOne("MusicSite.Models.User", "author")
                         .WithMany("userReviews")
                         .HasForeignKey("userID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("album");
+
+                    b.Navigation("author");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Track", b =>
                 {
-                    b.HasOne("MusicSite.Models.Album", null)
+                    b.HasOne("MusicSite.Models.Album", "Album")
                         .WithMany("albumTrackList")
-                        .HasForeignKey("AlbumID");
+                        .HasForeignKey("AlbumID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Album");
                 });
 
             modelBuilder.Entity("MusicSite.Models.Album", b =>

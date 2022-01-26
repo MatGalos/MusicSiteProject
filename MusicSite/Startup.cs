@@ -1,16 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicSite.Models;
-using MusicSite.Models.CRUD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using static MusicSite.Models.User;
 using static MusicSite.Models.Album;
 using static MusicSite.Models.Review;
@@ -31,12 +25,10 @@ namespace MusicSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDataBase>(options => options.UseSqlServer(Configuration["Data:MusicSite:ConnectionStarting"]));
-            services.AddTransient<IUserRepository, EFUserRepository>();
-            services.AddTransient<IAlbumRepository, EFUserRepository>();
-            services.AddTransient<IReviewRepository, EFUserRepository>();
             services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
             services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
-            services.AddTransient<IUserUserRepository, UserUserRepository>();
+            services.AddTransient<ICRUDReviewRepository, CRUDReviewRepository>();
+            services.AddTransient<ICRUDTrackRepository, CRUDTrackRepository>();
             services.AddControllersWithViews();
         }
 

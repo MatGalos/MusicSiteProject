@@ -34,7 +34,6 @@ namespace MusicSite.Migrations
                     userName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     eMail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     creationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    numberOfReviews = table.Column<int>(type: "int", nullable: false),
                     accountCreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     levelOfAccount = table.Column<int>(type: "int", nullable: false)
                 },
@@ -51,8 +50,8 @@ namespace MusicSite.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TrackNumberInAlbum = table.Column<int>(type: "int", nullable: false),
                     trackTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    trackLength = table.Column<int>(type: "int", nullable: false),
-                    AlbumID = table.Column<int>(type: "int", nullable: true)
+                    trackLength = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AlbumID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +61,7 @@ namespace MusicSite.Migrations
                         column: x => x.AlbumID,
                         principalTable: "Album",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

@@ -80,12 +80,12 @@ namespace MusicSite.Models
 
             public Album SingleAlbum(int id)
             {
-                Album entity = (Album)_context.Albums
-                    .Include(a => a.albumName)
-                    .Include(a => a.artistName)
-                    .Include(a => a.releaseDate)
-                    .Include(a => a.albumReviews)
-                    .Include(a => a.albumTrackList);
+                Album entity = _context.Albums
+                    .Include(a=>a.albumTrackList)
+                    .Include(a=>a.albumReviews)
+                    .Where(a => a.ID == id)
+                    .FirstOrDefault();
+;
                 return entity;
             }
 

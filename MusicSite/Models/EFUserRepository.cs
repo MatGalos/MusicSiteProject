@@ -5,15 +5,23 @@ using System.Threading.Tasks;
 
 namespace MusicSite.Models
 {
-    public class EFUserRepository :IUserRepository, IAlbumRepository,IReviewRepository
+    public interface IDB
+    {
+        IQueryable<User> Users { get; }
+        IQueryable<Review> Reviews { get; }
+        IQueryable<Album> Albums { get; }
+        IQueryable<Track> Tracks { get; }
+    }
+    public class Ef :IDB
     {
         private AppDataBase context;    
-        public EFUserRepository(AppDataBase context)
+        public Ef(AppDataBase context)
         {
             this.context = context;
         }
         public IQueryable<User> Users => context.Users;
         public IQueryable<Album> Albums => context.Albums;
         public IQueryable<Review> Reviews => context.Reviews;
+        public IQueryable<Track> Tracks => context.Tracks;
     }
 }

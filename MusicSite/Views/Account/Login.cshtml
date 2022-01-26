@@ -1,0 +1,11 @@
+﻿@model MusicSite.Models.Login.LoginModel
+
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="All"></div>
+    <span asp-validation-for="UserName"></span><br />
+    <input asp-for="UserName" /><br />
+    <span asp-validation-for="Password"></span><br />
+    <input asp-for="Password" /><br />
+    <input asp-for="ReturnURL" type="hidden" /><br />
+    <button type="submit">Zapisz</button>
+</form>

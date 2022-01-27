@@ -9,6 +9,8 @@ namespace MusicSite.Models.Login
 {
     public class ShowUserModel
     {
+
+
         public ShowUserModel(User user, string userID)
         {
             this.UserName = user.UserName;

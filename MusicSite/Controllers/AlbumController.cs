@@ -27,7 +27,7 @@ namespace MusicSite.Models
             ViewData["page"] = page;
             return View("index", model: entities);
         }
-        public IActionResult SingleAlbum(int id)
+        public IActionResult SingleAlbum(string id)
         {
             return View("ViewAlbum",repository.SingleAlbum(id));
         }

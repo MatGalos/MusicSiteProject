@@ -5,12 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicSite.Models;
-using static MusicSite.Models.User;
 using static MusicSite.Models.Album;
 using static MusicSite.Models.Review;
-using static MusicSite.Models.Track;
 using MusicSite.Models.Login;
 using Microsoft.AspNetCore.Identity;
+using static MusicSite.Models.Tracks.Track;
 
 namespace MusicSite
 {
@@ -71,7 +70,6 @@ namespace MusicSite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

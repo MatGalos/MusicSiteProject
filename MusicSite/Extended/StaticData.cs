@@ -48,5 +48,7 @@ namespace MusicSite.Extended
         {
 
         };
+
+        public static IEnumerable<Review> Reviews { get; internal set; }
     }
 }

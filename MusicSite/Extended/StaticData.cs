@@ -50,5 +50,6 @@ namespace MusicSite.Extended
         };
 
         public static IEnumerable<Review> Reviews { get; internal set; }
+        public static Album[] Albums { get; internal set; }
     }
 }

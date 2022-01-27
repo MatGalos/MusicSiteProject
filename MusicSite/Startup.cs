@@ -39,6 +39,7 @@ namespace MusicSite
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDataBase>()
                 .AddDefaultTokenProviders();
+            services.AddAuthorization(o=>o.AddPolicy("zalogowany", p=>p.RequireRole("zalogowany")));
             services.AddSession();
 
             services.AddControllersWithViews();
@@ -58,13 +59,13 @@ namespace MusicSite
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            
+            app.UseStaticFiles();
 
             app.UseRouting();
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseStaticFiles();
+            
 
             app.UseEndpoints(endpoints =>
             {

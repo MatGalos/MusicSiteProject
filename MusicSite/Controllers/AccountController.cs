@@ -29,10 +29,10 @@ namespace MusicSite.Controllers
         {
             return View(model: new LoginModel
             {
-                ReturnURL=returnUrl
+                ReturnURL = returnUrl
             });
         }
-        
+
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -15,6 +15,7 @@ namespace MusicSite.Models
         public string ID { get; set; }
         [Required(ErrorMessage = "Musisz podać tytuł albumu")]
         public string albumName { get; set; }
+
         [Required(ErrorMessage = "Musisz podać datę wydania")]
         public DateTime releaseDate { get; set; }
         [Required(ErrorMessage = "Musisz podać artystę")]

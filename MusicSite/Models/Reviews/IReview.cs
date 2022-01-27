@@ -7,7 +7,7 @@ namespace MusicSite.Models.Reviews
 {
     public interface IReview
     {
-        public Review Add(Review review);
+        public Review Add(ReviewAdd review,string authorID);
         public int CountAlbumReviews(string albumID);
         public int CountUserReviews(string userID);
         public void Delete(string ID);

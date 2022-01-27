@@ -19,12 +19,17 @@ namespace MusicSite.Models
             this.repository = repository;
             this.userManager = userManager;
         }
-        /*[HttpGet]
+        
+
+        [HttpGet]
         [Authorize]
-        public IActionResult Add(String commentID)
+        public IActionResult Add(string id)
         {
-            return this.View(model: new ReviewAdd() {albumID=commentID });
+            return this.View(new ReviewAdd(){
+                albumID=id
+            });
         }
+
         [HttpPost]
         [Authorize]
         public IActionResult Add(ReviewAdd reviewAdd)
@@ -32,12 +37,12 @@ namespace MusicSite.Models
             if (this.ModelState.IsValid)
             {
                 repository.Add(reviewAdd, userManager.GetUserId(this.User));
-                return this.Redirecttoaction
+
+                return this.RedirectToAction("Index", "Album", new { albumId = reviewAdd.albumID });
             }
-        }*/
-        public IActionResult Index()
-        {
-            return View();
+            else return this.View();
         }
+
+
     }
 }

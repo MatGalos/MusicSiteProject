@@ -5,12 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicSite.Models;
-using static MusicSite.Models.User;
-using static MusicSite.Models.Album;
-using static MusicSite.Models.Review;
-using static MusicSite.Models.Track;
-using MusicSite.Models.Login;
 using Microsoft.AspNetCore.Identity;
+using MusicSite.Models.Albums;
+using MusicSite.Models.Albums.AlbumsRepository;
+using MusicSite.Models.Reviews;
+using MusicSite.Models.Reviews.ReviewsRepository;
+using MusicSite.Models.Tracks;
+using MusicSite.Models.Track;
 
 namespace MusicSite
 {
@@ -30,14 +31,15 @@ namespace MusicSite
 
             services.AddTransient<IDB, Ef>();
 
-            services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
-            services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
-            services.AddTransient<ICRUDReviewRepository, CRUDReviewRepository>();
+
+            services.AddTransient<IAlbum, AlbumRepository>();
+            services.AddTransient<IReview, ReviewRepository>();
             services.AddTransient<ICRUDTrackRepository, CRUDTrackRepository>();
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDataBase>()
                 .AddDefaultTokenProviders();
+            services.AddAuthorization(o=>o.AddPolicy("zalogowany", p=>p.RequireRole("zalogowany")));
             services.AddSession();
 
             services.AddControllersWithViews();
@@ -57,13 +59,13 @@ namespace MusicSite
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            
+            app.UseStaticFiles();
 
             app.UseRouting();
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseStaticFiles();
+            
 
             app.UseEndpoints(endpoints =>
             {
@@ -71,7 +73,6 @@ namespace MusicSite
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

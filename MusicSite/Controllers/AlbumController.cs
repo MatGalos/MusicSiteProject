@@ -1,35 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MusicSite.Models.Albums;
+using MusicSite.Models.Albums.AlbumsRepository;
 using static MusicSite.Models.Album;
 
 namespace MusicSite.Models
 {
     public class AlbumController : Controller
     {
-        private ICRUDAlbumRepository repository;
-        public AlbumController(ICRUDAlbumRepository repository)
+        private readonly IAlbum album;
+        private readonly UserManager<User> user;
+        public AlbumController(IAlbum album,UserManager<User> user)
         {
-            this.repository = repository;
+            this.album = album;
+            this.user = user;
         }
-        public ViewResult Index1()
-        {
-            return View(repository.FindAll());
-        }
+
         public IActionResult Index(int page=0)
         {
             if (page <= 0)
                 page = 0;
-            var entities = repository.GetPage(page);
+            var entities = album.GetPage(page);
             if (entities.Count <= 0)
             {
                 page = 0;
-                entities = repository.GetPage(page);
+                entities = album.GetPage(page);
             }
             ViewData["page"] = page;
             return View("index", model: entities);
         }
-        public IActionResult SingleAlbum(int id)
+
+        public IActionResult SingleAlbum(string id)
         {
-            return View("ViewAlbum",repository.SingleAlbum(id));
+            return View("ViewAlbum", album.Get(id));
         }
+
     }
 }

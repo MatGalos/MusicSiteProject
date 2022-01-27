@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MusicSite.Models.Reviews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +12,37 @@ namespace MusicSite.Models
 {
     public class ReviewController : Controller
     {
-        private ICRUDReviewRepository repository;
-        public ReviewController(ICRUDReviewRepository repository)
+        private readonly UserManager<User> userManager;
+        private readonly IReview repository;
+        public ReviewController(IReview repository, UserManager<User> userManager)
         {
             this.repository = repository;
+            this.userManager = userManager;
         }
-        public ViewResult Index1()
+        
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Add(string id)
         {
-            return View(repository.FindAll());
+            return this.View(new ReviewAdd(){
+                albumID=id
+            });
         }
-        public IActionResult Index()
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Add(ReviewAdd reviewAdd)
         {
-            return View();
+            if (this.ModelState.IsValid)
+            {
+                repository.Add(reviewAdd, userManager.GetUserId(this.User));
+
+                return this.RedirectToAction("Index", "Album", new { albumId = reviewAdd.albumID });
+            }
+            else return this.View();
         }
+
+
     }
 }

@@ -43,10 +43,12 @@
         <th>Autor</th>
     </tr>
     <tbody>
+        @{ bool both = false;}
         @foreach (var a in @Model)
         {
-            if (a.ID % 2 == 1)
+            if (both)
             {
+                both = !both;
         <tr class="white">
             <td>
                 @a.albumName

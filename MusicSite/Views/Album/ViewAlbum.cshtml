@@ -1,4 +1,6 @@
-﻿@model MusicSite.Models.Album
+﻿@using MusicSite.Models.Reviews;
+
+@model MusicSite.Models.Albums.ShowAlbum
 <p>@Model.albumName</p>
 <p>@Model.artistName</p>
 <p>@Model.releaseDate</p>
@@ -7,8 +9,8 @@
 @foreach (var track in Model.albumTrackList)
 {
     <p>@track.TrackNumberInAlbum</p>
-    <p>@track.trackTitle</p>
-    <p>@track.trackLength</p>
+    <p>@track.TrackTitle</p>
+    <p>@track.TrackLength</p>
 }
 
 <p>Recenzje</p>
@@ -18,3 +20,10 @@
                 <p>@review.rating</p>
                 <p>@review.reviewText</p>
             }
+@if (User.Identity.IsAuthenticated)
+{
+    @await Html.PartialAsync("../Review/Add.cshtml", model: new ReviewAdd() { albumID = Model.ID } );
+}
+else
+{<a asp-controller="Review" asp-action="Add" asp-route-AlbumID="@Model.ID" asp-route-returnUrl=@Path>napisz recenzje</a>}
+

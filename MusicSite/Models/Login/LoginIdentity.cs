@@ -10,9 +10,6 @@ using System.Threading.Tasks;
 
 namespace MusicSite.Models.Login
 {
-    /*public class AppIdentityDbContext : IdentityDbContext<IdentityUser>{
-         public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options) { }
-     }*/
 
     public static class IdentitySeedData
     {
@@ -34,9 +31,9 @@ namespace MusicSite.Models.Login
                 user = new User { 
                     UserName=adminUser,
                     Email = "",
-                    name = "",
-                    lastName = "",
-                    creationDate = DateTime.Now,
+                    Name = "",
+                    LastName = "",
+                    CreationDate = DateTime.Now,
                 };
 
                 await userManager.CreateAsync(user, adminPassword);

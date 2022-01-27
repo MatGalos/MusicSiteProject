@@ -14,7 +14,7 @@ namespace MusicSite.Models
     }
     public class Ef :IDB
     {
-        private AppDataBase context;    
+        private readonly AppDataBase context;    
         public Ef(AppDataBase context)
         {
             this.context = context;

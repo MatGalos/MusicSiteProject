@@ -11,7 +11,6 @@ namespace MusicSite.Models
     {
         
         public AppDataBase(DbContextOptions<AppDataBase> options) : base(options) { }
-        //public DbSet<User> Users { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Album> Albums { get; set; }
         public DbSet<Track> Tracks { get; set; } 
@@ -19,7 +18,7 @@ namespace MusicSite.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().ToTable("User");
+            User.ModelCreate(modelBuilder);
             modelBuilder.Entity<Review>().ToTable("Review");
             modelBuilder.Entity<Album>().ToTable("Album");
             modelBuilder.Entity<Track>().ToTable("Track");

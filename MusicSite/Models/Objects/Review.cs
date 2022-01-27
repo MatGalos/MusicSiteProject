@@ -29,7 +29,7 @@ namespace MusicSite.Models
         {
             builder.Entity<Review>()
                 .HasOne(a => a.author)
-                .WithMany(a => a.userReviews)
+                .WithMany(a => a.UserReviews)
                 .HasForeignKey(a => a.userID);
 
             builder.Entity<Review>()

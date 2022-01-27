@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MusicSite.Extended;
+using MusicSite.Models.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace MusicSite.Models
 {
-    public enum levelOfAccount
+    public enum LevelOfAccount
         {
             user,
             admin,
@@ -17,51 +18,52 @@ namespace MusicSite.Models
     {
 
         [Required(ErrorMessage ="Podaj imię")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [Required(ErrorMessage = "Podaj nazwisko")]
-        public string lastName { get; set; }
+        public string LastName { get; set; }
         [Required(ErrorMessage = "Podaj datę urodzenia")]
         [DataType(DataType.Date)]
-        public DateTime creationDate { get; set; }
-        public ICollection<Review> userReviews { get; set; }
+        public DateTime CreationDate { get; set; }
+        public ICollection<Review> UserReviews { get; set; }
         [DataType(DataType.Date)]
-        public DateTime accountCreationDate { get; set; } = DateTime.Now;
+        public DateTime AccountCreationDate { get; set; } = DateTime.Now;
+
         
-
-        public interface ICRUDUserRepository
+        public static void ModelCreate(ModelBuilder builder)
         {
-            User Add(User user);
-            User Update(User user);
-            IList<User> FindAll();
-        }
-        public class CRUDUserRepository : ICRUDUserRepository
-        {
-            private AppDataBase _context;
-
-            public CRUDUserRepository(AppDataBase context)
+            static void AddUser(ModelBuilder builder,User entity,String roleID)
             {
-                _context = context;
-            }
-            public User Add(User user)
-            {
-                var entity = _context.Users.Add(user).Entity;
-                _context.SaveChanges();
-                return entity;
+                builder.Entity<User>().HasData(entity);
+                builder.Entity<IdentityUserRole<String>>.HasData(
+                    new IdentityUserRole<String>
+                    {
+                        RoleId = roleID,
+                        UserId = entity.Id
+                    }
+                    );
 
             }
-
-            public IList<User> FindAll()
+            foreach (FieldInfo p in typeof(Roles).GetFields())
             {
-                List<User> entity = _context.Users.ToList();
-                return entity;
+                string role = (String)p.GetValue(null);
+                builder.Entity<IdentityRole>().HasData(new IdentityRole
+                {
+                    Id = StaticData.roleID[role],
+                    Name = role
+                });
             }
 
-            public User Update(User user)
+            foreach (User entity in StaticData.users)
             {
-                var entity = _context.Users.Update(user).Entity;
-                _context.SaveChanges();
-                return entity;
+                AddUser(builder, entity, StaticData.roleID[Roles.User]);
+            }
+
+            foreach (User entity in StaticData.admins)
+            {
+                AddUser(builder, entity, StaticData.roleID[Roles.Admin]);
             }
         }
+       
+        
     }
 }

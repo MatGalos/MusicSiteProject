@@ -9,12 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace MusicSite.Controllers
 {
     public class AccountController : Controller
     {
-        private UserManager<User> _userManager;
-        private SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
        
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
@@ -45,7 +46,6 @@ namespace MusicSite.Controllers
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        Console.WriteLine(123);
                         return Redirect("/");
                     }
                 }
@@ -70,13 +70,13 @@ namespace MusicSite.Controllers
             {
                 User userData = new()
                 {
-                    name = model.name,
-                    lastName = model.lastName,
-                    creationDate = model.creationDate,
-                    UserName = model.userName,
-                    Email = model.eMail,
+                    Name = model.Name,
+                    LastName = model.LastName,
+                    CreationDate = model.CreationDate,
+                    UserName = model.UserName,
+                    Email = model.EMail,
                 };
-                IdentityResult newUser = await _userManager.CreateAsync(userData, model.password);
+                IdentityResult newUser = await _userManager.CreateAsync(userData, model.Password);
 
                 if (newUser.Succeeded)
                 {

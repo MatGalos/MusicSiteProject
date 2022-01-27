@@ -14,8 +14,8 @@ namespace MusicSite.Models
         [Key]
         public int ID { get; set; }
         public int TrackNumberInAlbum { get; set; }
-        public string trackTitle { get; set; }
-        public string trackLength { get; set; }
+        public string TrackTitle { get; set; }
+        public string TrackLength { get; set; }
         public int AlbumID { get; set; }
         [ForeignKey("AlbumID")]
         public Album Album { get; set; }

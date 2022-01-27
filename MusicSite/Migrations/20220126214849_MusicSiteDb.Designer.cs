@@ -10,7 +10,7 @@ using MusicSite.Models;
 namespace MusicSite.Migrations
 {
     [DbContext(typeof(AppDataBase))]
-    [Migration("20220126155807_MusicSiteDb")]
+    [Migration("20220126214849_MusicSiteDb")]
     partial class MusicSiteDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

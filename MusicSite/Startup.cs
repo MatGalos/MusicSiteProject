@@ -30,7 +30,7 @@ namespace MusicSite
 
             services.AddTransient<IDB, Ef>();
 
-            services.AddTransient<ICRUDUserRepository, CRUDUserRepository>();
+
             services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
             services.AddTransient<ICRUDReviewRepository, CRUDReviewRepository>();
             services.AddTransient<ICRUDTrackRepository, CRUDTrackRepository>();

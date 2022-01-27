@@ -14,6 +14,7 @@ namespace MusicSite.Models.Albums.AlbumsRepository
                         .Include(a => a.albumTrackList)
                         .Include(a => a.albumReviews)
                         .Where(a => a.ID == ID)
+                        .Select(a=>new ShowAlbum(a))
                         .FirstOrDefault();
             return entity;
         }

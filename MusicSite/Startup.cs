@@ -5,11 +5,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MusicSite.Models;
-using static MusicSite.Models.Album;
-using static MusicSite.Models.Review;
-using MusicSite.Models.Login;
 using Microsoft.AspNetCore.Identity;
-using static MusicSite.Models.Tracks.Track;
+using MusicSite.Models.Albums;
+using MusicSite.Models.Albums.AlbumsRepository;
+using MusicSite.Models.Reviews;
+using MusicSite.Models.Reviews.ReviewsRepository;
+using MusicSite.Models.Tracks;
+using MusicSite.Models.Track;
 
 namespace MusicSite
 {
@@ -30,8 +32,8 @@ namespace MusicSite
             services.AddTransient<IDB, Ef>();
 
 
-            services.AddTransient<ICRUDAlbumRepository, CRUDAlbumRepository>();
-            services.AddTransient<ICRUDReviewRepository, CRUDReviewRepository>();
+            services.AddTransient<IAlbum, AlbumRepository>();
+            services.AddTransient<IReview, ReviewRepository>();
             services.AddTransient<ICRUDTrackRepository, CRUDTrackRepository>();
 
             services.AddIdentity<User, IdentityRole>()

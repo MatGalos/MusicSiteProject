@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MusicSite.Models.Track;
 using MusicSite.Models.Tracks;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace MusicSite.Models.Albums
         public int reviewCount { get;  set; }
         public int averageRating { get; set; }
         public string artistName { get; set; }
-        public IEnumerable<Track> albumTrackList { get; set; }
+        public IEnumerable<TrackDB> albumTrackList { get; set; }
         public ICollection<Review> albumReviews { get; set; }
         [HiddenInput]
         public string ReturnURL { get; set; }

@@ -11,9 +11,10 @@ namespace MusicSite.Models
 {
     public class Review
     {
+        [Key]
         public string ID { get; set; }
         [Required]
-        public String albumID { get; set; }
+        public string albumID { get; set; }
         [Required]
         public String userID { get; set; }
         [ForeignKey("userID")]
@@ -31,11 +32,8 @@ namespace MusicSite.Models
             builder.Entity<Review>()
                 .Property(a => a.ID)
                 .HasDefaultValueSql("NEWID()");
-            
-            foreach (Review review in StaticData.Reviews)
-            {
-                builder.Entity<Review>().HasData(review);
-            }
+
+            builder.Entity<Review>().HasData(Info.Reviews);
 
             builder.Entity<Review>()
                 .HasOne(a => a.author)
@@ -49,8 +47,6 @@ namespace MusicSite.Models
 
             builder.Entity<Review>()
                 .HasKey(a => new { a.albumID, a.userID });
-
         }
-
     }
 }

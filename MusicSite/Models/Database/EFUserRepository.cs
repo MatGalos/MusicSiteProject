@@ -1,4 +1,5 @@
-﻿using MusicSite.Models.Tracks;
+﻿using MusicSite.Models.Track;
+using MusicSite.Models.Tracks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MusicSite.Models
         IQueryable<User> Users { get; }
         IQueryable<Review> Reviews { get; }
         IQueryable<Album> Albums { get; }
-        IQueryable<Track> Tracks { get; }
+        IQueryable<TrackDB> Tracks { get; }
     }
     public class Ef :IDB
     {
@@ -23,6 +24,6 @@ namespace MusicSite.Models
         public IQueryable<User> Users => context.Users;
         public IQueryable<Album> Albums => context.Albums;
         public IQueryable<Review> Reviews => context.Reviews;
-        public IQueryable<Track> Tracks => context.Tracks;
+        public IQueryable<TrackDB> Tracks => context.Tracks;
     }
 }

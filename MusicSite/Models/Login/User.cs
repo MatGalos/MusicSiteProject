@@ -16,7 +16,7 @@ namespace MusicSite.Models
         }
     public class User : IdentityUser //Klasa User do której stworzenia potrzeba imie nazwisko nazwa użytkownika data urodzenia adres email, automatycznie serwer aktualizuję datę stworzenia, liczbę recenzji, liczbę komentarzy oraz średnią wystawionych ocen
     {
-
+        
         [Required(ErrorMessage ="Podaj imię")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Podaj nazwisko")]
@@ -34,8 +34,8 @@ namespace MusicSite.Models
             static void AddUser(ModelBuilder builder,User entity,String roleID)
             {
                 builder.Entity<User>().HasData(entity);
-                builder.Entity<IdentityUserRole<String>>.HasData(
-                    new IdentityUserRole<String>
+                builder.Entity<IdentityUserRole<String>>().HasData(
+                    new IdentityUserRole<String>()
                     {
                         RoleId = roleID,
                         UserId = entity.Id
@@ -48,19 +48,19 @@ namespace MusicSite.Models
                 string role = (String)p.GetValue(null);
                 builder.Entity<IdentityRole>().HasData(new IdentityRole
                 {
-                    Id = StaticData.roleID[role],
+                    Id = Info.roleID[role],
                     Name = role
                 });
             }
 
-            foreach (User entity in StaticData.users)
+            foreach (User entity in Info.users)
             {
-                AddUser(builder, entity, StaticData.roleID[Roles.User]);
+                AddUser(builder, entity, Info.roleID[Roles.User]);
             }
 
-            foreach (User entity in StaticData.admins)
+            foreach (User entity in Info.admins)
             {
-                AddUser(builder, entity, StaticData.roleID[Roles.Admin]);
+                AddUser(builder, entity, Info.roleID[Roles.Admin]);
             }
         }
        

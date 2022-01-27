@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Net.Http.Headers;
 using MusicSite.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Encodings;
 using System.Linq;
 using System.Security.Principal;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -38,7 +37,13 @@ namespace MusicSite.Extended
                 }
                 else
                 {
-                    String[] token = requestHeader.GetAuthentication();
+                    String[] token = Encoding.UTF8.GetString(
+Convert.FromBase64String(
+((String)requestHeader[HeaderNames.Authorization])
+.Split(" ")
+.Last()
+.Trim()))
+.Split(":"); 
 
                     if (await this.Validate(token[0], token[1])) {
                         GenericIdentity identity = new(token[0]);

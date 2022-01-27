@@ -1,11 +1,9 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using static MusicSite.Models.Track;
 using Microsoft.EntityFrameworkCore;
+using MusicSite.Models.Tracks;
 
 namespace MusicSite.Models
 {
@@ -16,7 +14,7 @@ namespace MusicSite.Models
         public string albumName { get; set; }
         public DateTime releaseDate { get; set; }
         public string artistName { get; set; }
-        public ICollection<Track> albumTrackList { get; set; } = new List<Track>();
+        public IEnumerable<Track> albumTrackList { get; set; } = new List<Track>();
         public ICollection<Review> albumReviews { get; set; } = new List<Review>();
 
 

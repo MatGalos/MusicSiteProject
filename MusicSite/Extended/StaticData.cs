@@ -1,5 +1,6 @@
 ﻿using MusicSite.Models;
 using MusicSite.Models.Login;
+using MusicSite.Models.Tracks;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,11 @@ namespace MusicSite.Extended
         public static readonly IReadOnlyDictionary<String, String> roleID = new Dictionary<String, String> {
             { Roles.Admin,"hdfsgkjhaskdhadsfk"},
             { Roles.User,"asdapsoid[pias"}
+        };
+
+        public static readonly IReadOnlyList<Track> Tracks = new List<Track>
+        {
+
         };
     }
 }

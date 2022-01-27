@@ -6,22 +6,26 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using MusicSite.Extended;
 
-namespace MusicSite.Models
+namespace MusicSite.Models.Tracks
 {
     public class Track
     {
-        [Key]
-        public int ID { get; set; }
         public int TrackNumberInAlbum { get; set; }
         public string TrackTitle { get; set; }
         public string TrackLength { get; set; }
-        public int AlbumID { get; set; }
+        public string AlbumID { get; set; }
         [ForeignKey("AlbumID")]
-        public Album Album { get; set; }
+        public Album Album;
 
         internal static void ModelCreate(ModelBuilder builder)
         {
+            builder.Entity<Track>().HasKey(a => new { a.AlbumID });
+            foreach(Track entity in StaticData.Tracks)
+            {
+                builder.Entity<Track>().HasData(entity);
+            }
             builder.Entity<Track>()
                 .HasOne(a => a.Album)
                 .WithMany(a => a.albumTrackList)

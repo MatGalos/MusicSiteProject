@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MusicSite.Models.Tracks;
 
 namespace MusicSite.Models
 {
@@ -19,9 +20,9 @@ namespace MusicSite.Models
             base.OnModelCreating(modelBuilder);
 
             User.ModelCreate(modelBuilder);
+            Track.ModelCreate(modelBuilder);
             modelBuilder.Entity<Review>().ToTable("Review");
             modelBuilder.Entity<Album>().ToTable("Album");
-            modelBuilder.Entity<Track>().ToTable("Track");
         }
     }
 }

@@ -17,9 +17,10 @@ namespace MusicSite.Models.Reviews
         [HiddenInput]
         public String ReturnURL { get; set; }
         public string reviewText { get; internal set; }
+        [HiddenInput]
         public string albumID { get; internal set; }
         [Required]
         [Range(0, 5, ErrorMessage = "Ocena spoza zakresu")]
-        public byte rating { get; internal set; }
+        public int rating { get; internal set; }
     }
 }

@@ -1,5 +1,10 @@
-﻿@model MusicSite.Models.Reviews.ReviewAdd
+﻿@model MusicSite.Models.Reviews.ReviewShow
     <style>
+        form {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
+
         input {
             border-top-style: hidden;
             border-left-style: hidden;
@@ -34,17 +39,19 @@
             border-bottom-color: red;
             background-color: #edafaf;
         }
+
+        .modify {
+            background-color: #7a80f0;
+        }
     </style>
+
     <br />
-    <h4>Wystaw Ocenę</h4>
+    <h4>Usuń Recenzję</h4>
     <hr />
 
-    <form asp-controller="Review" asp-action="Add">
+    <p>Czy jesteś pewny że chcesz ją usunąć?</p>
 
-        <input asp-for="albumID" class="form-control" />
-        <label for="rating">wystaw ocenę</label>
-        <input asp-for="rating" class="form-control">
-        <label for="reviewText">Napisz recenzję</label>
-        <textarea asp-for="reviewText" class="form-control"></textarea>
-        <button type="submit">dodaj recenzje</button>
+    <form asp-controller="Review" asp-action="Delete">
+        <button type="submit" >tak,chcę usunąć </button>
+        <a class="modify" href="@Model.ReturnURL">Nie, to była pomyłka</a>
     </form>

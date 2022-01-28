@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicSite.Extended;
+using MusicSite.Models.Albums;
+using MusicSite.Models.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MusicSite.Models
+namespace MusicSite.Models.Reviews
 {
     public class Review
     {
@@ -17,13 +19,11 @@ namespace MusicSite.Models
         public string albumID { get; set; }
         [Required]
         public String userID { get; set; }
-        [ForeignKey("userID")]
         public User author { get; set; }
-        [ForeignKey("albumID")]
         public Album album { get; set; }
         [Required]
         [Range(0, 5, ErrorMessage = "Ocena spoza zakresu")]
-        public byte rating { get; set; }
+        public int rating { get; set; }
         public string reviewText { get; set; }
 
 
@@ -45,8 +45,6 @@ namespace MusicSite.Models
                 .WithMany(a => a.albumReviews)
                 .HasForeignKey(a => a.albumID);
 
-            builder.Entity<Review>()
-                .HasKey(a => new { a.albumID, a.userID });
         }
     }
 }

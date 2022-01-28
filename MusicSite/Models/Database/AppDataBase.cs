@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MusicSite.Models.Albums;
+using MusicSite.Models.Reviews;
 using MusicSite.Models.Track;
 using MusicSite.Models.Tracks;
 

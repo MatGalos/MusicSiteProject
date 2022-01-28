@@ -1,0 +1,62 @@
+﻿@model MusicSite.Models.Reviews.ReviewUpdate
+    <style>
+        form {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
+        input {
+            border-top-style: hidden;
+            border-left-style: hidden;
+            border-right-style: hidden;
+            background-color: lightgray;
+        }
+
+        button {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
+
+            button:hover {
+                transition: 500ms ease;
+                background-color: gray;
+            }
+
+        label {
+            font-size: 20px;
+        }
+
+        input:focus {
+            outline: #adb8b0;
+        }
+
+        .field-validation-error {
+            color: red;
+            font: bold;
+        }
+
+        .input-validation-error {
+            border-bottom-color: red;
+            background-color: #edafaf;
+        }
+        .modify {
+            background-color: #7a80f0;
+        }
+    </style>
+
+<br />
+<h4>Aktualizuj Recenzję</h4>
+<hr />
+
+<form asp-controller="Review" asp-action="Update" type="Post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <input asp-for="ID" value="@Model.ID" />
+    <input asp-for="ReturnURL" value="@Model.ReturnURL" />
+    <input asp-for="albumID" value="@Model.albumID" />
+    <label for="rating">zmień ocenę</label>
+    <input asp-for="rating" class="form-control">
+    <label for="rating">zmień recenzję</label>
+    <textarea asp-for="reviewText" class="form-control"></textarea>
+    <button type="submit">Zapisz zmiany</button>
+</form>
+
+<a class="modify" href="@Model.ReturnURL">Alunuj</a>

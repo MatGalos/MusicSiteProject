@@ -1,0 +1,47 @@
+﻿@using MusicSite.Models.Login;
+
+@model MusicSite.Models.Reviews.ReviewShow
+<style>
+    .modify {
+        background-color: #7a80f0;
+    }
+
+    .delete {
+        background-color: #f04343;
+    }
+    table{
+        width:500px;
+    }
+</style>
+
+<div>
+    @if (User.IsInRole(Roles.Admin))
+    {
+        <a class="delete" asp-controller="Review" asp-action="DeleteByAdmin" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Usuń Jako Admin</a>
+    }
+    else if (Model.Author.ItsMe)
+    {
+        <a class="modify" asp-controller="Review" asp-action="Update" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Aktualizuj</a>
+        <a class="delete" asp-controller="Review" asp-action="Delete" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Usuń</a>
+    }
+</div>
+<table>
+    <tr>
+        <td>
+            <h6>@Model.Author.UserName</h6>
+        </td>
+        </tr>
+    <tr>
+        <td>
+            <h6>
+                Ocena
+                @Model.rating /5
+            </h6>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h6>@Model.reviewText</h6>
+        </td>
+    </tr>
+</table>

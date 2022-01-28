@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MusicSite.Models.Login;
 using MusicSite.Models.Reviews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static MusicSite.Models.Review;
+
 
 namespace MusicSite.Models
 {
@@ -43,6 +44,84 @@ namespace MusicSite.Models
             else return this.View();
         }
 
+        [HttpGet]
+        [Authorize]
+        public IActionResult Update(string id,string URL)
+        {
+            ReviewUpdate data = repository.GetUpdate(id, userManager.GetUserId(this.User));
+            data.ReturnURL = URL;
+            return data.Author.ItsMe ? this.View(model: data):this.StatusCode(403);
+        }
 
+        [HttpPost]
+        [Authorize]
+        public IActionResult Update(ReviewUpdate reviewUpdate)
+        {
+            if (this.ModelState.IsValid)
+            {
+                if (!repository.GetUpdate(reviewUpdate.ID, userManager.GetUserId(this.User)).Author.ItsMe) 
+                    return this.StatusCode(403);
+                repository.Update(reviewUpdate);
+                return this.RedirectToAction("Index", "Album", new { albumId = reviewUpdate.albumID });
+            }
+            else
+            {
+                return this.View();
+            }
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Delete(string id,string URL)
+        {
+            ReviewShow reviewShow = repository.Get(id, userManager.GetUserId(this.User));
+            reviewShow.ReturnURL = URL;
+            return reviewShow.Author.ItsMe ? this.View(model: reviewShow) : this.StatusCode(403);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Delete(string id)
+        {
+            if (this.ModelState.IsValid)
+            {
+                ReviewShow review = repository.Get(id,userManager.GetUserId(this.User));
+                if (!review.Author.ItsMe )
+                {
+                    return this.StatusCode(403);
+                }
+                repository.Delete(id);
+                return this.RedirectToAction("Index", "Album");
+            }
+            else
+            {
+                return this.View();
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles.Admin)]
+        public IActionResult DeleteByAdmin(string id, string URL)
+        {
+            ReviewShow reviewShow = repository.Get(id, userManager.GetUserId(this.User));
+            reviewShow.ReturnURL = URL;
+            return this.View(model: reviewShow);
+        }
+
+        [HttpPost]
+        [Authorize(Roles.Admin)]
+        public IActionResult DeleteByAdmin(string id)
+        {
+            if (this.ModelState.IsValid)
+            {
+                ReviewShow review = repository.Get(id, "");
+                repository.Delete(id);
+                return this.RedirectToAction("Index", "Album");
+            }
+            else
+            {
+                return this.View();
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace MusicSite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDataBase>(options => options.UseSqlServer(Configuration["Data:MusicSite:ConnectionStarting"]));
+            services.AddDbContext<AppDataBase>(options => options.UseSqlServer(this.Configuration["Data:MusicSite:ConnectionStarting"]));
 
             services.AddTransient<IDB, Ef>();
 
@@ -39,7 +39,7 @@ namespace MusicSite
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDataBase>()
                 .AddDefaultTokenProviders();
-            services.AddAuthorization(o=>o.AddPolicy("zalogowany", p=>p.RequireRole("zalogowany")));
+            services.AddAuthorization(o=>o.AddPolicy("Admin", p=>p.RequireRole("Admin")));
             services.AddSession();
 
             services.AddControllersWithViews();

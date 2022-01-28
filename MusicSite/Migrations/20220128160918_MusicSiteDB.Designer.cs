@@ -10,8 +10,8 @@ using MusicSite.Models;
 namespace MusicSite.Migrations
 {
     [DbContext(typeof(AppDataBase))]
-    [Migration("20220127234909_MusicSiteDb")]
-    partial class MusicSiteDb
+    [Migration("20220128160918_MusicSiteDB")]
+    partial class MusicSiteDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,13 +51,13 @@ namespace MusicSite.Migrations
                         new
                         {
                             Id = "hdfsgkjhaskdhadsfk",
-                            ConcurrencyStamp = "9cd19dad-62d7-4939-8edd-f41f7c6ef2e2",
+                            ConcurrencyStamp = "bda77cd7-b421-4fb5-bc0d-b525da3fa99e",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "asdapsoid[pias",
-                            ConcurrencyStamp = "66fa3940-2d10-412a-9f77-45918ce838e5",
+                            ConcurrencyStamp = "9eb37d49-8865-478b-8d96-bbb60442e861",
                             Name = "User"
                         });
                 });
@@ -149,17 +149,17 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1",
+                            UserId = "9734c7a3-1563-4db7-9148-4b829dddfb47",
                             RoleId = "asdapsoid[pias"
                         },
                         new
                         {
-                            UserId = "2",
+                            UserId = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1",
                             RoleId = "asdapsoid[pias"
                         },
                         new
                         {
-                            UserId = "113dsad-adsasasd",
+                            UserId = "7178bf24-1894-480b-beb8-a733cb3f2eed",
                             RoleId = "hdfsgkjhaskdhadsfk"
                         });
                 });
@@ -183,7 +183,7 @@ namespace MusicSite.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MusicSite.Models.Album", b =>
+            modelBuilder.Entity("MusicSite.Models.Albums.Album", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -285,25 +285,30 @@ namespace MusicSite.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MusicSite.Models.Review", b =>
+            modelBuilder.Entity("MusicSite.Models.Reviews.Review", b =>
                 {
-                    b.Property<string>("albumID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("userID")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("ID")
-                        .HasColumnType("nvarchar(max)")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)")
                         .HasDefaultValueSql("NEWID()");
 
-                    b.Property<byte>("rating")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("albumID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("reviewText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("albumID", "userID");
+                    b.Property<string>("userID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("albumID");
 
                     b.HasIndex("userID");
 
@@ -312,99 +317,99 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
+                            ID = "fa87440d-1ce8-46cf-baee-5c9476fb97cf",
                             albumID = "1",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1"
                         },
                         new
                         {
+                            ID = "c307885f-a956-4fd1-8a23-4110a1c6e129",
                             albumID = "1",
-                            userID = "2",
-                            ID = "1",
-                            rating = (byte)3,
-                            reviewText = "Mid"
+                            rating = 3,
+                            reviewText = "Mid",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "c80a3538-2c34-40ec-9d1d-1d1a629a2e5d",
                             albumID = "2",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "62535928-abd7-4577-8e55-9bbeaf59ae63",
                             albumID = "3",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "cb8bc8d2-f263-4139-bd0e-78470e70ec23",
                             albumID = "4",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "d5508780-18ba-434c-b3d3-aeabc3e15e78",
                             albumID = "5",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "f75db586-fcb3-4c0e-bc8c-37900e77d664",
                             albumID = "6",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "68f7a425-495c-4137-82b3-7ccbd01f1e91",
                             albumID = "7",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "37e4d800-5b83-4ed9-93f4-e7a0affe269c",
                             albumID = "8",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "a89e9c5a-67f3-421b-aa4a-0e7b2d6b8b6e",
                             albumID = "9",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "ac0c1ca5-954a-4fdd-b0d3-d1246352f2f4",
                             albumID = "10",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
+                            ID = "0803834e-26a5-4310-b272-46b330464283",
                             albumID = "11",
-                            userID = "1",
-                            ID = "1",
-                            rating = (byte)5,
-                            reviewText = "Good"
+                            rating = 5,
+                            reviewText = "Good",
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         });
                 });
 
@@ -1433,6 +1438,374 @@ namespace MusicSite.Migrations
                             TrackLength = "0:49",
                             TrackNumberInAlbum = 11,
                             TrackTitle = "Jesus Is Lord"
+                        },
+                        new
+                        {
+                            ID = "126",
+                            AlbumID = "10",
+                            TrackLength = "0:52",
+                            TrackNumberInAlbum = 1,
+                            TrackTitle = "Donda Chant"
+                        },
+                        new
+                        {
+                            ID = "127",
+                            AlbumID = "10",
+                            TrackLength = "4:57",
+                            TrackNumberInAlbum = 2,
+                            TrackTitle = "Jail"
+                        },
+                        new
+                        {
+                            ID = "128",
+                            AlbumID = "10",
+                            TrackLength = "5:33",
+                            TrackNumberInAlbum = 3,
+                            TrackTitle = "God Breathed"
+                        },
+                        new
+                        {
+                            ID = "129",
+                            AlbumID = "10",
+                            TrackLength = "5:39",
+                            TrackNumberInAlbum = 4,
+                            TrackTitle = "Off the Grid"
+                        },
+                        new
+                        {
+                            ID = "130",
+                            AlbumID = "10",
+                            TrackLength = "4:03",
+                            TrackNumberInAlbum = 5,
+                            TrackTitle = "Hurricane"
+                        },
+                        new
+                        {
+                            ID = "131",
+                            AlbumID = "10",
+                            TrackLength = "3:46",
+                            TrackNumberInAlbum = 6,
+                            TrackTitle = "Praise God"
+                        },
+                        new
+                        {
+                            ID = "132",
+                            AlbumID = "10",
+                            TrackLength = "3:15",
+                            TrackNumberInAlbum = 7,
+                            TrackTitle = "Jonah"
+                        },
+                        new
+                        {
+                            ID = "133",
+                            AlbumID = "10",
+                            TrackLength = "3:24",
+                            TrackNumberInAlbum = 8,
+                            TrackTitle = "OK OK"
+                        },
+                        new
+                        {
+                            ID = "134",
+                            AlbumID = "10",
+                            TrackLength = "2:27",
+                            TrackNumberInAlbum = 9,
+                            TrackTitle = "Junya"
+                        },
+                        new
+                        {
+                            ID = "135",
+                            AlbumID = "10",
+                            TrackLength = "4:02",
+                            TrackNumberInAlbum = 10,
+                            TrackTitle = "Believe What I Say"
+                        },
+                        new
+                        {
+                            ID = "136",
+                            AlbumID = "10",
+                            TrackLength = "3:17",
+                            TrackNumberInAlbum = 11,
+                            TrackTitle = "24"
+                        },
+                        new
+                        {
+                            ID = "137",
+                            AlbumID = "10",
+                            TrackLength = "3:18",
+                            TrackNumberInAlbum = 12,
+                            TrackTitle = "Remote Control"
+                        },
+                        new
+                        {
+                            ID = "138",
+                            AlbumID = "10",
+                            TrackLength = "2:36",
+                            TrackNumberInAlbum = 13,
+                            TrackTitle = "Moon"
+                        },
+                        new
+                        {
+                            ID = "139",
+                            AlbumID = "10",
+                            TrackLength = "2:25",
+                            TrackNumberInAlbum = 14,
+                            TrackTitle = "Heaven and Hell"
+                        },
+                        new
+                        {
+                            ID = "140",
+                            AlbumID = "10",
+                            TrackLength = "2:08",
+                            TrackNumberInAlbum = 15,
+                            TrackTitle = "Donda"
+                        },
+                        new
+                        {
+                            ID = "141",
+                            AlbumID = "10",
+                            TrackLength = "3:41",
+                            TrackNumberInAlbum = 16,
+                            TrackTitle = "Keep My Spirit Alive"
+                        },
+                        new
+                        {
+                            ID = "142",
+                            AlbumID = "10",
+                            TrackLength = "8:58",
+                            TrackNumberInAlbum = 17,
+                            TrackTitle = "Jesus Lord"
+                        },
+                        new
+                        {
+                            ID = "143",
+                            AlbumID = "10",
+                            TrackLength = "3:03",
+                            TrackNumberInAlbum = 18,
+                            TrackTitle = "New Again"
+                        },
+                        new
+                        {
+                            ID = "144",
+                            AlbumID = "10",
+                            TrackLength = "1:44",
+                            TrackNumberInAlbum = 19,
+                            TrackTitle = "Tell the Vision"
+                        },
+                        new
+                        {
+                            ID = "145",
+                            AlbumID = "10",
+                            TrackLength = "2:42",
+                            TrackNumberInAlbum = 20,
+                            TrackTitle = "Lord I Need You"
+                        },
+                        new
+                        {
+                            ID = "146",
+                            AlbumID = "10",
+                            TrackLength = "5:58",
+                            TrackNumberInAlbum = 21,
+                            TrackTitle = "Pure Souls"
+                        },
+                        new
+                        {
+                            ID = "147",
+                            AlbumID = "10",
+                            TrackLength = "5:10",
+                            TrackNumberInAlbum = 22,
+                            TrackTitle = "Come to Life"
+                        },
+                        new
+                        {
+                            ID = "148",
+                            AlbumID = "10",
+                            TrackLength = "2:57",
+                            TrackNumberInAlbum = 23,
+                            TrackTitle = "No Child Left Behind"
+                        },
+                        new
+                        {
+                            ID = "149",
+                            AlbumID = "10",
+                            TrackLength = "4:57",
+                            TrackNumberInAlbum = 24,
+                            TrackTitle = "Jail Pt 2"
+                        },
+                        new
+                        {
+                            ID = "150",
+                            AlbumID = "10",
+                            TrackLength = "3:24",
+                            TrackNumberInAlbum = 25,
+                            TrackTitle = "OK OK Pt 2"
+                        },
+                        new
+                        {
+                            ID = "151",
+                            AlbumID = "10",
+                            TrackLength = "3:02",
+                            TrackNumberInAlbum = 26,
+                            TrackTitle = "Junya Pt 2"
+                        },
+                        new
+                        {
+                            ID = "152",
+                            AlbumID = "10",
+                            TrackLength = "11:30",
+                            TrackNumberInAlbum = 27,
+                            TrackTitle = "Jesus Lord Pt 2"
+                        },
+                        new
+                        {
+                            ID = "153",
+                            AlbumID = "11",
+                            TrackLength = "2:37",
+                            TrackNumberInAlbum = 1,
+                            TrackTitle = "1539 N. Calvert"
+                        },
+                        new
+                        {
+                            ID = "154",
+                            AlbumID = "11",
+                            TrackLength = "2:31",
+                            TrackNumberInAlbum = 2,
+                            TrackTitle = "Real Nega"
+                        },
+                        new
+                        {
+                            ID = "155",
+                            AlbumID = "11",
+                            TrackLength = "3:18",
+                            TrackNumberInAlbum = 3,
+                            TrackTitle = "Thug Tears"
+                        },
+                        new
+                        {
+                            ID = "156",
+                            AlbumID = "11",
+                            TrackLength = "1:26",
+                            TrackNumberInAlbum = 4,
+                            TrackTitle = "Dayum"
+                        },
+                        new
+                        {
+                            ID = "157",
+                            AlbumID = "11",
+                            TrackLength = "2:34",
+                            TrackNumberInAlbum = 5,
+                            TrackTitle = "Baby I'm Bleeding"
+                        },
+                        new
+                        {
+                            ID = "158",
+                            AlbumID = "11",
+                            TrackLength = "1:34",
+                            TrackNumberInAlbum = 6,
+                            TrackTitle = "My Thoughts on Neogaf Dying"
+                        },
+                        new
+                        {
+                            ID = "159",
+                            AlbumID = "11",
+                            TrackLength = "3:08",
+                            TrackNumberInAlbum = 7,
+                            TrackTitle = "Rock N Roll Is Dead"
+                        },
+                        new
+                        {
+                            ID = "160",
+                            AlbumID = "11",
+                            TrackLength = "3:15",
+                            TrackNumberInAlbum = 8,
+                            TrackTitle = "DD Form 214"
+                        },
+                        new
+                        {
+                            ID = "161",
+                            AlbumID = "11",
+                            TrackLength = "2:41",
+                            TrackNumberInAlbum = 9,
+                            TrackTitle = "Germs"
+                        },
+                        new
+                        {
+                            ID = "162",
+                            AlbumID = "11",
+                            TrackLength = "1:20",
+                            TrackNumberInAlbum = 10,
+                            TrackTitle = "Libtard Anthem"
+                        },
+                        new
+                        {
+                            ID = "163",
+                            AlbumID = "11",
+                            TrackLength = "3:00",
+                            TrackNumberInAlbum = 11,
+                            TrackTitle = "Panic Emoji"
+                        },
+                        new
+                        {
+                            ID = "164",
+                            AlbumID = "11",
+                            TrackLength = "1:23",
+                            TrackNumberInAlbum = 12,
+                            TrackTitle = "DJ Snitch Interlude"
+                        },
+                        new
+                        {
+                            ID = "165",
+                            AlbumID = "11",
+                            TrackLength = "2:04",
+                            TrackNumberInAlbum = 13,
+                            TrackTitle = "Whole Foods"
+                        },
+                        new
+                        {
+                            ID = "166",
+                            AlbumID = "11",
+                            TrackLength = "1:57",
+                            TrackNumberInAlbum = 14,
+                            TrackTitle = "Macaulay Culkin"
+                        },
+                        new
+                        {
+                            ID = "167",
+                            AlbumID = "11",
+                            TrackLength = "3:33",
+                            TrackNumberInAlbum = 15,
+                            TrackTitle = "Williamsburg"
+                        },
+                        new
+                        {
+                            ID = "168",
+                            AlbumID = "11",
+                            TrackLength = "1:26",
+                            TrackNumberInAlbum = 16,
+                            TrackTitle = "I Cannot Wait Until Morrissey Dies"
+                        },
+                        new
+                        {
+                            ID = "169",
+                            AlbumID = "11",
+                            TrackLength = "4:43",
+                            TrackNumberInAlbum = 17,
+                            TrackTitle = "Rainbow Six"
+                        },
+                        new
+                        {
+                            ID = "170",
+                            AlbumID = "11",
+                            TrackLength = "2:28",
+                            TrackNumberInAlbum = 18,
+                            TrackTitle = "1488"
+                        },
+                        new
+                        {
+                            ID = "171",
+                            AlbumID = "11",
+                            TrackLength = "2:15",
+                            TrackNumberInAlbum = 19,
+                            TrackTitle = "Curb Stomp"
                         });
                 });
 
@@ -1517,46 +1890,48 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1",
+                            Id = "9734c7a3-1563-4db7-9148-4b829dddfb47",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 0, 49, 8, 847, DateTimeKind.Local).AddTicks(4352),
-                            ConcurrencyStamp = "55c93e83-32ce-4c25-a26f-6f141b0c1e62",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 542, DateTimeKind.Local).AddTicks(5137),
+                            ConcurrencyStamp = "63a5f1ba-9367-4608-a3c1-60128df02856",
                             CreationDate = new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mateuszgalos@gmail.com",
                             EmailConfirmed = false,
                             LastName = "Galos",
                             LockoutEnabled = false,
                             Name = "Mateusz",
+                            NormalizedUserName = "MAGICK90909",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fdd484f0-944e-4db6-a820-e0ceabbebd47",
+                            SecurityStamp = "31ec3e16-ce57-4b3e-bd08-8d1041fe81a1",
                             TwoFactorEnabled = false,
                             UserName = "MAgick90909"
                         },
                         new
                         {
-                            Id = "2",
+                            Id = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 0, 49, 8, 850, DateTimeKind.Local).AddTicks(3728),
-                            ConcurrencyStamp = "fb390e0c-2985-46a8-ae59-50143d645a4e",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6098),
+                            ConcurrencyStamp = "cc9ca206-33fc-4bb9-b7de-5b6ee7270dc4",
                             CreationDate = new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user2@gmail.com",
                             EmailConfirmed = false,
                             LastName = "Stefanowy",
                             LockoutEnabled = false,
                             Name = "Stefan",
+                            NormalizedUserName = "USER2",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bfa6f3dc-97e3-4ee1-b3f1-9cb835817423",
+                            SecurityStamp = "5b25125e-b2b9-4025-b000-aea0ec729172",
                             TwoFactorEnabled = false,
                             UserName = "User2"
                         },
                         new
                         {
-                            Id = "113dsad-adsasasd",
+                            Id = "7178bf24-1894-480b-beb8-a733cb3f2eed",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 0, 49, 8, 850, DateTimeKind.Local).AddTicks(3816),
-                            ConcurrencyStamp = "1cef9b2d-23c8-4632-9a5a-06e93bdd93e5",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6321),
+                            ConcurrencyStamp = "2422bbc0-79e6-43eb-9dab-7d7db1aa02df",
                             CreationDate = new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
@@ -1566,7 +1941,7 @@ namespace MusicSite.Migrations
                             NormalizedUserName = "ADMIN",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55fec80d-53f3-4b60-927b-42d3d5d5c045",
+                            SecurityStamp = "66c3d6cc-2249-48b5-9b2f-13ed5c93ee9a",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -1623,9 +1998,9 @@ namespace MusicSite.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MusicSite.Models.Review", b =>
+            modelBuilder.Entity("MusicSite.Models.Reviews.Review", b =>
                 {
-                    b.HasOne("MusicSite.Models.Album", "album")
+                    b.HasOne("MusicSite.Models.Albums.Album", "album")
                         .WithMany("albumReviews")
                         .HasForeignKey("albumID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1644,14 +2019,14 @@ namespace MusicSite.Migrations
 
             modelBuilder.Entity("MusicSite.Models.Track.TrackDB", b =>
                 {
-                    b.HasOne("MusicSite.Models.Album", "Album")
+                    b.HasOne("MusicSite.Models.Albums.Album", "Album")
                         .WithMany("albumTrackList")
                         .HasForeignKey("AlbumID");
 
                     b.Navigation("Album");
                 });
 
-            modelBuilder.Entity("MusicSite.Models.Album", b =>
+            modelBuilder.Entity("MusicSite.Models.Albums.Album", b =>
                 {
                     b.Navigation("albumReviews");
 

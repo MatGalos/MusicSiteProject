@@ -12,14 +12,14 @@ namespace MusicSite.Models.Reviews.ReviewsRepository
             Review newEntity = new()
             {
                 userID = authorID,
-                ID = new Guid().ToString(),
+                ID = Guid.NewGuid().ToString(),
                 albumID = review.albumID,
                 rating = review.rating,
                 reviewText = review.reviewText
             };
-            Review entity = this.db.Reviews.Add(newEntity).Entity;
+            var entity = this.db.Reviews.Add(newEntity);
             this.db.SaveChanges();
-            return entity;
+            return entity.Entity;
         }
     }
 }

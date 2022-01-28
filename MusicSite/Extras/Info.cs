@@ -1,5 +1,7 @@
 ﻿using MusicSite.Models;
+using MusicSite.Models.Albums;
 using MusicSite.Models.Login;
+using MusicSite.Models.Reviews;
 using MusicSite.Models.Track;
 using MusicSite.Models.Tracks;
 using System;
@@ -21,20 +23,22 @@ namespace MusicSite.Extended
                 Name="Mateusz",
                 LastName="Galos",
                 UserName="MAgick90909",
+                NormalizedUserName="MAGICK90909",
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="mateuszgalos@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
-                Id="1"
+                Id=Guid.NewGuid().ToString()
             },
             new User()
             {
                 Name="Stefan",
                 LastName="Stefanowy",
                 UserName="User2",
+                NormalizedUserName="USER2",
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="user2@gmail.com",
                 CreationDate=new DateTime(1997,07,22),
-                Id="2"
+                Id=Guid.NewGuid().ToString()
             }
         };
         public static readonly IReadOnlyList<User> admins = new List<User>
@@ -48,7 +52,7 @@ namespace MusicSite.Extended
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="Admin@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
-                Id="113dsad-adsasasd"
+                Id=Guid.NewGuid().ToString()
             }
         };
         public static readonly IReadOnlyDictionary<String, String> roleID = new Dictionary<String, String> {
@@ -1056,103 +1060,471 @@ new TrackDB()
                 TrackNumberInAlbum=11,
                 TrackLength="0:49",
                 TrackTitle="Jesus Is Lord"
+            },
+new TrackDB()
+            {
+                ID="126",
+                AlbumID="10",
+                TrackNumberInAlbum=1,
+                TrackLength="0:52",
+                TrackTitle="Donda Chant"
+            },
+new TrackDB()
+            {
+                ID="127",
+                AlbumID="10",
+                TrackNumberInAlbum=2,
+                TrackLength="4:57",
+                TrackTitle="Jail"
+            },
+new TrackDB()
+            {
+                ID="128",
+                AlbumID="10",
+                TrackNumberInAlbum=3,
+                TrackLength="5:33",
+                TrackTitle="God Breathed"
+            },
+new TrackDB()
+            {
+                ID="129",
+                AlbumID="10",
+                TrackNumberInAlbum=4,
+                TrackLength="5:39",
+                TrackTitle="Off the Grid"
+            },
+new TrackDB()
+            {
+                ID="130",
+                AlbumID="10",
+                TrackNumberInAlbum=5,
+                TrackLength="4:03",
+                TrackTitle="Hurricane"
+            },
+new TrackDB()
+            {
+                ID="131",
+                AlbumID="10",
+                TrackNumberInAlbum=6,
+                TrackLength="3:46",
+                TrackTitle="Praise God"
+            },
+new TrackDB()
+            {
+                ID="132",
+                AlbumID="10",
+                TrackNumberInAlbum=7,
+                TrackLength="3:15",
+                TrackTitle="Jonah"
+            },
+new TrackDB()
+            {
+                ID="133",
+                AlbumID="10",
+                TrackNumberInAlbum=8,
+                TrackLength="3:24",
+                TrackTitle="OK OK"
+            },
+new TrackDB()
+            {
+                ID="134",
+                AlbumID="10",
+                TrackNumberInAlbum=9,
+                TrackLength="2:27",
+                TrackTitle="Junya"
+            },
+new TrackDB()
+            {
+                ID="135",
+                AlbumID="10",
+                TrackNumberInAlbum=10,
+                TrackLength="4:02",
+                TrackTitle="Believe What I Say"
+            },
+new TrackDB()
+            {
+                ID="136",
+                AlbumID="10",
+                TrackNumberInAlbum=11,
+                TrackLength="3:17",
+                TrackTitle="24"
+            },
+new TrackDB()
+            {
+                ID="137",
+                AlbumID="10",
+                TrackNumberInAlbum=12,
+                TrackLength="3:18",
+                TrackTitle="Remote Control"
+            },
+new TrackDB()
+            {
+                ID="138",
+                AlbumID="10",
+                TrackNumberInAlbum=13,
+                TrackLength="2:36",
+                TrackTitle="Moon"
+            },
+new TrackDB()
+            {
+                ID="139",
+                AlbumID="10",
+                TrackNumberInAlbum=14,
+                TrackLength="2:25",
+                TrackTitle="Heaven and Hell"
+            },
+new TrackDB()
+            {
+                ID="140",
+                AlbumID="10",
+                TrackNumberInAlbum=15,
+                TrackLength="2:08",
+                TrackTitle="Donda"
+            },
+new TrackDB()
+            {
+                ID="141",
+                AlbumID="10",
+                TrackNumberInAlbum=16,
+                TrackLength="3:41",
+                TrackTitle="Keep My Spirit Alive"
+            },
+new TrackDB()
+            {
+                ID="142",
+                AlbumID="10",
+                TrackNumberInAlbum=17,
+                TrackLength="8:58",
+                TrackTitle="Jesus Lord"
+            },
+new TrackDB()
+            {
+                ID="143",
+                AlbumID="10",
+                TrackNumberInAlbum=18,
+                TrackLength="3:03",
+                TrackTitle="New Again"
+            },
+new TrackDB()
+            {
+                ID="144",
+                AlbumID="10",
+                TrackNumberInAlbum=19,
+                TrackLength="1:44",
+                TrackTitle="Tell the Vision"
+            },
+new TrackDB()
+            {
+                ID="145",
+                AlbumID="10",
+                TrackNumberInAlbum=20,
+                TrackLength="2:42",
+                TrackTitle="Lord I Need You"
+            },
+new TrackDB()
+            {
+                ID="146",
+                AlbumID="10",
+                TrackNumberInAlbum=21,
+                TrackLength="5:58",
+                TrackTitle="Pure Souls"
+            },
+new TrackDB()
+            {
+                ID="147",
+                AlbumID="10",
+                TrackNumberInAlbum=22,
+                TrackLength="5:10",
+                TrackTitle="Come to Life"
+            },
+new TrackDB()
+            {
+                ID="148",
+                AlbumID="10",
+                TrackNumberInAlbum=23,
+                TrackLength="2:57",
+                TrackTitle="No Child Left Behind"
+            },
+new TrackDB()
+            {
+                ID="149",
+                AlbumID="10",
+                TrackNumberInAlbum=24,
+                TrackLength="4:57",
+                TrackTitle="Jail Pt 2"
+            },
+new TrackDB()
+            {
+                ID="150",
+                AlbumID="10",
+                TrackNumberInAlbum=25,
+                TrackLength="3:24",
+                TrackTitle="OK OK Pt 2"
+            },
+new TrackDB()
+            {
+                ID="151",
+                AlbumID="10",
+                TrackNumberInAlbum=26,
+                TrackLength="3:02",
+                TrackTitle="Junya Pt 2"
+            },
+new TrackDB()
+            {
+                ID="152",
+                AlbumID="10",
+                TrackNumberInAlbum=27,
+                TrackLength="11:30",
+                TrackTitle="Jesus Lord Pt 2"
+            },
+new TrackDB()
+            {
+                ID="153",
+                AlbumID="11",
+                TrackNumberInAlbum=1,
+                TrackLength="2:37",
+                TrackTitle="1539 N. Calvert"
+            },
+new TrackDB()
+            {
+                ID="154",
+                AlbumID="11",
+                TrackNumberInAlbum=2,
+                TrackLength="2:31",
+                TrackTitle="Real Nega"
+            },
+new TrackDB()
+            {
+                ID="155",
+                AlbumID="11",
+                TrackNumberInAlbum=3,
+                TrackLength="3:18",
+                TrackTitle="Thug Tears"
+            },
+new TrackDB()
+            {
+                ID="156",
+                AlbumID="11",
+                TrackNumberInAlbum=4,
+                TrackLength="1:26",
+                TrackTitle="Dayum"
+            },
+new TrackDB()
+            {
+                ID="157",
+                AlbumID="11",
+                TrackNumberInAlbum=5,
+                TrackLength="2:34",
+                TrackTitle="Baby I'm Bleeding"
+            },
+new TrackDB()
+            {
+                ID="158",
+                AlbumID="11",
+                TrackNumberInAlbum=6,
+                TrackLength="1:34",
+                TrackTitle="My Thoughts on Neogaf Dying"
+            },
+new TrackDB()
+            {
+                ID="159",
+                AlbumID="11",
+                TrackNumberInAlbum=7,
+                TrackLength="3:08",
+                TrackTitle="Rock N Roll Is Dead"
+            },
+new TrackDB()
+            {
+                ID="160",
+                AlbumID="11",
+                TrackNumberInAlbum=8,
+                TrackLength="3:15",
+                TrackTitle="DD Form 214"
+            },
+new TrackDB()
+            {
+                ID="161",
+                AlbumID="11",
+                TrackNumberInAlbum=9,
+                TrackLength="2:41",
+                TrackTitle="Germs"
+            },
+new TrackDB()
+            {
+                ID="162",
+                AlbumID="11",
+                TrackNumberInAlbum=10,
+                TrackLength="1:20",
+                TrackTitle="Libtard Anthem"
+            },
+new TrackDB()
+            {
+                ID="163",
+                AlbumID="11",
+                TrackNumberInAlbum=11,
+                TrackLength="3:00",
+                TrackTitle="Panic Emoji"
+            },
+new TrackDB()
+            {
+                ID="164",
+                AlbumID="11",
+                TrackNumberInAlbum=12,
+                TrackLength="1:23",
+                TrackTitle="DJ Snitch Interlude"
+            },
+new TrackDB()
+            {
+                ID="165",
+                AlbumID="11",
+                TrackNumberInAlbum=13,
+                TrackLength="2:04",
+                TrackTitle="Whole Foods"
+            },
+new TrackDB()
+            {
+                ID="166",
+                AlbumID="11",
+                TrackNumberInAlbum=14,
+                TrackLength="1:57",
+                TrackTitle="Macaulay Culkin"
+            },
+new TrackDB()
+            {
+                ID="167",
+                AlbumID="11",
+                TrackNumberInAlbum=15,
+                TrackLength="3:33",
+                TrackTitle="Williamsburg"
+            },
+new TrackDB()
+            {
+                ID="168",
+                AlbumID="11",
+                TrackNumberInAlbum=16,
+                TrackLength="1:26",
+                TrackTitle="I Cannot Wait Until Morrissey Dies"
+            },
+new TrackDB()
+            {
+                ID="169",
+                AlbumID="11",
+                TrackNumberInAlbum=17,
+                TrackLength="4:43",
+                TrackTitle="Rainbow Six"
+            },
+new TrackDB()
+            {
+                ID="170",
+                AlbumID="11",
+                TrackNumberInAlbum=18,
+                TrackLength="2:28",
+                TrackTitle="1488"
+            },
+new TrackDB()
+            {
+                ID="171",
+                AlbumID="11",
+                TrackNumberInAlbum=19,
+                TrackLength="2:15",
+                TrackTitle="Curb Stomp"
             }
 
         };
         public static readonly IReadOnlyList<Review> Reviews = new List<Review> { 
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="1",
-                userID="1",
+                userID=users[1].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="1",
-                userID="2",
+                userID=users[0].Id,
                 rating=3,
                 reviewText="Mid"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="2",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="3",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="4",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="5",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="6",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="7",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="8",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="9",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="10",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="11",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },

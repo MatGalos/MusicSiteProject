@@ -8,13 +8,13 @@ namespace MusicSite.Models.Albums.AlbumsRepository
 {
     public partial class AlbumRepository : IAlbum
     {
-        public ShowAlbum Get(string ID)
+        public ShowAlbum Get(string ID, string userID)
         {
             ShowAlbum entity = this.db.Albums
                         .Include(a => a.albumTrackList)
-                        .Include(a => a.albumReviews)
+                        .Include(a => a.albumReviews).ThenInclude(a=>a.author)
                         .Where(a => a.ID == ID)
-                        .Select(a=>new ShowAlbum(a))
+                        .Select(a=>new ShowAlbum(a, userID))
                         .FirstOrDefault();
             return entity;
         }

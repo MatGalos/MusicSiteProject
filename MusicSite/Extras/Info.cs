@@ -24,7 +24,7 @@ namespace MusicSite.Extended
                 LastName="Galos",
                 UserName="MAgick90909",
                 NormalizedUserName="MAGICK90909",
-                PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
+                PasswordHash="AQAAAAEAACcQAAAAEDlJWPiUH6IbruRxBjc/g4EnjjVYpJo/X+ibGtH8j2FoogbAopUJvHzSC1G2+1aGZg==",
                 Email="mateuszgalos@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
                 Id=Guid.NewGuid().ToString()
@@ -35,7 +35,7 @@ namespace MusicSite.Extended
                 LastName="Stefanowy",
                 UserName="User2",
                 NormalizedUserName="USER2",
-                PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
+                PasswordHash="AQAAAAEAACcQAAAAEDlJWPiUH6IbruRxBjc/g4EnjjVYpJo/X+ibGtH8j2FoogbAopUJvHzSC1G2+1aGZg==",
                 Email="user2@gmail.com",
                 CreationDate=new DateTime(1997,07,22),
                 Id=Guid.NewGuid().ToString()
@@ -49,7 +49,7 @@ namespace MusicSite.Extended
                 LastName="Admin",
                 UserName="Admin",
                 NormalizedUserName = "ADMIN",
-                PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
+                PasswordHash="AQAAAAEAACcQAAAAEDlJWPiUH6IbruRxBjc/g4EnjjVYpJo/X+ibGtH8j2FoogbAopUJvHzSC1G2+1aGZg==",
                 Email="Admin@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
                 Id=Guid.NewGuid().ToString()

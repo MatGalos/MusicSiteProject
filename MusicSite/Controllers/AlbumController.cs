@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MusicSite.Models.Albums;
-using MusicSite.Models.Albums.AlbumsRepository;
-using static MusicSite.Models.Album;
+using MusicSite.Models.Reviews;
 
-namespace MusicSite.Models
+namespace MusicSite.Models.Albums
 {
     public class AlbumController : Controller
     {
         private readonly IAlbum album;
+        private readonly IReview review;
         private readonly UserManager<User> user;
-        public AlbumController(IAlbum album,UserManager<User> user)
+        public AlbumController(IAlbum album,UserManager<User> user,IReview review)
         {
             this.album = album;
             this.user = user;
+            this.review = review;
         }
 
         public IActionResult Index(int page=0)
@@ -32,7 +32,7 @@ namespace MusicSite.Models
 
         public IActionResult SingleAlbum(string id)
         {
-            return View("ViewAlbum", album.Get(id));
+            return View("ViewAlbum", album.Get(id, user.GetUserId(User)));
         }
 
     }

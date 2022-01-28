@@ -1,0 +1,12 @@
+﻿@model MusicSite.Models.Reviews.ReviewAdd
+
+    <br />
+    <h4>Aktualizuj Recenzję</h4>
+    <hr />
+
+    <form asp-controller="Review" asp-action="Update">
+        <input asp-for="albumID" class="form-control" />
+        <input asp-for="rating" class="form-control" >
+        <textarea asp-for="reviewText" class="form-control" ></textarea>
+        <input type="submit" value="Zapisz Zmiany" />
+    </form>

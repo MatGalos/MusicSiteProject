@@ -6,8 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using MusicSite.Models.Tracks;
 using MusicSite.Extended;
 using MusicSite.Models.Track;
+using MusicSite.Models.Reviews;
 
-namespace MusicSite.Models
+namespace MusicSite.Models.Albums
 {
     public class Album
     {

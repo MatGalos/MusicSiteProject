@@ -39,7 +39,7 @@ namespace MusicSite
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDataBase>()
                 .AddDefaultTokenProviders();
-            services.AddAuthorization(o=>o.AddPolicy("zalogowany", p=>p.RequireRole("zalogowany")));
+            services.AddAuthorization(o=>o.AddPolicy("Admin", p=>p.RequireRole("Admin")));
             services.AddSession();
 
             services.AddControllersWithViews();

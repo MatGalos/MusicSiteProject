@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using MusicSite.Extended;
+using MusicSite.Models.Albums;
 
 namespace MusicSite.Models.Track
 {

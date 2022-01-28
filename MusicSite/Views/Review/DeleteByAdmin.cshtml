@@ -1,0 +1,12 @@
+﻿@model MusicSite.Models.Reviews.ReviewShow
+
+<br />
+<h4>Usuń Recenzję Adminie</h4>
+<hr />
+
+<p>Czy jesteś pewny że chcesz usunąć recenzję użytkownika ?</p>
+
+<form asp-controller="Review" asp-action="DeleteByAdmin">
+    <input type="submit" value="tak,chcę usunąć" />
+    <a href="@Model.ReturnURL">Nie, to była pomyłka</a>
+</form>

@@ -1,5 +1,7 @@
 ﻿using MusicSite.Models;
+using MusicSite.Models.Albums;
 using MusicSite.Models.Login;
+using MusicSite.Models.Reviews;
 using MusicSite.Models.Track;
 using MusicSite.Models.Tracks;
 using System;
@@ -21,20 +23,22 @@ namespace MusicSite.Extended
                 Name="Mateusz",
                 LastName="Galos",
                 UserName="MAgick90909",
+                NormalizedUserName="MAGICK90909",
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="mateuszgalos@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
-                Id="1"
+                Id=Guid.NewGuid().ToString()
             },
             new User()
             {
                 Name="Stefan",
                 LastName="Stefanowy",
                 UserName="User2",
+                NormalizedUserName="USER2",
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="user2@gmail.com",
                 CreationDate=new DateTime(1997,07,22),
-                Id="2"
+                Id=Guid.NewGuid().ToString()
             }
         };
         public static readonly IReadOnlyList<User> admins = new List<User>
@@ -48,7 +52,7 @@ namespace MusicSite.Extended
                 PasswordHash="AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                 Email="Admin@gmail.com",
                 CreationDate=new DateTime(1999,09,22),
-                Id="113dsad-adsasasd"
+                Id=Guid.NewGuid().ToString()
             }
         };
         public static readonly IReadOnlyDictionary<String, String> roleID = new Dictionary<String, String> {
@@ -1430,97 +1434,97 @@ new TrackDB()
         public static readonly IReadOnlyList<Review> Reviews = new List<Review> { 
             new Review()
             {
-                ID="1",
+                ID=Guid.NewGuid().ToString(),
                 albumID="1",
-                userID="1",
+                userID=users[1].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="2",
+                ID=Guid.NewGuid().ToString(),
                 albumID="1",
-                userID="2",
+                userID=users[0].Id,
                 rating=3,
                 reviewText="Mid"
             },
             new Review()
             {
-                ID="3",
+                ID=Guid.NewGuid().ToString(),
                 albumID="2",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="4",
+                ID=Guid.NewGuid().ToString(),
                 albumID="3",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="5",
+                ID=Guid.NewGuid().ToString(),
                 albumID="4",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="6",
+                ID=Guid.NewGuid().ToString(),
                 albumID="5",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="7",
+                ID=Guid.NewGuid().ToString(),
                 albumID="6",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="8",
+                ID=Guid.NewGuid().ToString(),
                 albumID="7",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="9",
+                ID=Guid.NewGuid().ToString(),
                 albumID="8",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="10",
+                ID=Guid.NewGuid().ToString(),
                 albumID="9",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="11",
+                ID=Guid.NewGuid().ToString(),
                 albumID="10",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },
             new Review()
             {
-                ID="12",
+                ID=Guid.NewGuid().ToString(),
                 albumID="11",
-                userID="1",
+                userID=users[0].Id,
                 rating=5,
                 reviewText="Good"
             },

@@ -1,12 +1,12 @@
 ﻿@model MusicSite.Models.Reviews.ReviewAdd
 
-    <br />
-    <h4>Dodaj komentarz</h4>
-    <hr />
+<br />
+<h4>Dodaj komentarz</h4>
+<hr />
 
-    <form asp-controller="Review" asp-action="Add">
-        <input asp-for="albumID" class="form-control" />
-        <input asp-for="rating" class="form-control" >
-        <textarea asp-for="reviewText" class="form-control" ></textarea>
-        <input type="submit" value="dodaj recenzje" />
-    </form>
+<form asp-controller="Review" asp-action="Add" >
+    <input asp-for="albumID" class="form-control" />
+    <input asp-for="rating" class="form-control">
+    <textarea asp-for="reviewText" class="form-control"></textarea>
+    <input type="submit" value="dodaj recenzje" />
+</form>

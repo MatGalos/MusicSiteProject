@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicSite.Migrations
 {
-    public partial class MusicSiteDb : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -195,15 +195,15 @@ namespace MusicSite.Migrations
                 name: "Reviews",
                 columns: table => new
                 {
+                    ID = table.Column<string>(type: "nvarchar(450)", nullable: false, defaultValueSql: "NEWID()"),
                     albumID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     userID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ID = table.Column<string>(type: "nvarchar(max)", nullable: true, defaultValueSql: "NEWID()"),
                     rating = table.Column<int>(type: "int", nullable: false),
                     reviewText = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Reviews", x => new { x.albumID, x.userID });
+                    table.PrimaryKey("PK_Reviews", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Reviews_Albums_albumID",
                         column: x => x.albumID,
@@ -241,8 +241,8 @@ namespace MusicSite.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "hdfsgkjhaskdhadsfk", "9fdcb7fa-41b2-4527-9e09-e0ca4aecafa7", "Admin", null },
-                    { "asdapsoid[pias", "9415e05a-bb95-4232-9b4d-13404dadffd3", "User", null }
+                    { "hdfsgkjhaskdhadsfk", "5d02765d-f6a6-4db2-8794-1dba39bca086", "Admin", null },
+                    { "asdapsoid[pias", "531efa6d-7100-4a2b-8a90-f357d3dcc7af", "User", null }
                 });
 
             migrationBuilder.InsertData(
@@ -250,9 +250,9 @@ namespace MusicSite.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AccountCreationDate", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "LastName", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, new DateTime(2022, 1, 28, 8, 31, 9, 818, DateTimeKind.Local).AddTicks(1926), "a74a257e-9491-4ded-9996-912745854a19", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "mateuszgalos@gmail.com", false, "Galos", false, null, "Mateusz", null, null, "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "f4fb1f74-bab0-4741-8c61-996a79c61f50", false, "MAgick90909" },
-                    { "2", 0, new DateTime(2022, 1, 28, 8, 31, 9, 821, DateTimeKind.Local).AddTicks(1836), "aedb88b7-f52f-47a3-b52f-a7c39ede1c09", new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "user2@gmail.com", false, "Stefanowy", false, null, "Stefan", null, null, "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "f4b5b1ff-46ee-41cf-8c24-aab4eb82ac96", false, "User2" },
-                    { "113dsad-adsasasd", 0, new DateTime(2022, 1, 28, 8, 31, 9, 821, DateTimeKind.Local).AddTicks(1929), "71fe453f-c5f3-4599-a66a-42e927d86096", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin@gmail.com", false, "Admin", false, null, "Admin", null, "ADMIN", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "aeef3160-2de6-48ad-9cee-408582c2bdba", false, "Admin" }
+                    { "e5286d13-0492-4fe9-8bd1-ecd46cd94253", 0, new DateTime(2022, 1, 28, 14, 17, 43, 852, DateTimeKind.Local).AddTicks(917), "35f3c29c-526e-4e05-b6f9-4b27cdd51418", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "mateuszgalos@gmail.com", false, "Galos", false, null, "Mateusz", null, "MAGICK90909", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "01b0aab9-4940-413b-9af9-0ead36fe53e8", false, "MAgick90909" },
+                    { "8f403914-479c-4a17-8663-4dfc0be7eec8", 0, new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6404), "4ee2ce93-787c-4cb9-adef-2c6894a10873", new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "user2@gmail.com", false, "Stefanowy", false, null, "Stefan", null, "USER2", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "00f93f5f-b933-4e7e-817f-c1f1e89de880", false, "User2" },
+                    { "862a97d3-1855-4c60-9fac-b2633bbbc73d", 0, new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6474), "b72f1fb3-5675-485f-b8dc-5340e753becd", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin@gmail.com", false, "Admin", false, null, "Admin", null, "ADMIN", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "973064ea-0fb8-41bd-ba4c-63b569b847a6", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -260,28 +260,28 @@ namespace MusicSite.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "hdfsgkjhaskdhadsfk", "113dsad-adsasasd" },
-                    { "asdapsoid[pias", "2" },
-                    { "asdapsoid[pias", "1" }
+                    { "hdfsgkjhaskdhadsfk", "862a97d3-1855-4c60-9fac-b2633bbbc73d" },
+                    { "asdapsoid[pias", "8f403914-479c-4a17-8663-4dfc0be7eec8" },
+                    { "asdapsoid[pias", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Reviews",
-                columns: new[] { "albumID", "userID", "ID", "rating", "reviewText" },
+                columns: new[] { "ID", "albumID", "rating", "reviewText", "userID" },
                 values: new object[,]
                 {
-                    { "1", "1", "1", 5, "Good" },
-                    { "2", "1", "3", 5, "Good" },
-                    { "3", "1", "4", 5, "Good" },
-                    { "4", "1", "5", 5, "Good" },
-                    { "5", "1", "6", 5, "Good" },
-                    { "1", "2", "2", 3, "Mid" },
-                    { "7", "1", "8", 5, "Good" },
-                    { "8", "1", "9", 5, "Good" },
-                    { "9", "1", "10", 5, "Good" },
-                    { "10", "1", "11", 5, "Good" },
-                    { "11", "1", "12", 5, "Good" },
-                    { "6", "1", "7", 5, "Good" }
+                    { "ff37145c-eaa1-4eb6-b6bd-7701c0a61ac2", "1", 3, "Mid", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "0d10f889-dfbe-4c8b-8dcd-8aa7b74a05bc", "2", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "c320cf30-7e79-4edd-97ba-4787e6f913af", "3", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "f9efeb73-eacd-4b97-9559-648d4e7c5a2f", "4", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "87ace1d2-fa1c-4215-baf5-b19b5f73779e", "5", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "c54e8d46-f201-4c7b-9932-4694905ae112", "1", 5, "Good", "8f403914-479c-4a17-8663-4dfc0be7eec8" },
+                    { "7bbb2968-4bbb-4636-9447-a2d201382ee8", "7", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "687aba2d-d525-4da1-ad0e-30faf53dd2eb", "8", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "840c3fa9-b1cc-4e01-a833-7a954ef5c231", "9", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "688e6f1f-ab86-4899-a901-33ef9c9747d4", "10", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "8b01b718-3a88-4d2f-bc82-e2efd0a8a944", "11", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
+                    { "dbcdc2c2-36d8-4e19-a84a-14f3ff88e76d", "6", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" }
                 });
 
             migrationBuilder.InsertData(
@@ -528,6 +528,11 @@ namespace MusicSite.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_albumID",
+                table: "Reviews",
+                column: "albumID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_userID",

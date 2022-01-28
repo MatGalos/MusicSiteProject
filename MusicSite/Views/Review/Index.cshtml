@@ -1,0 +1,18 @@
+﻿@using MusicSite.Models.Login;
+
+@model MusicSite.Models.Reviews.ReviewShow
+
+<div>
+    @if (User.IsInRole(Roles.Admin))
+    {
+        <a asp-controller="Review" asp-action="DeleteByAdmin" asp-route-ID="@Model.ID" asp-route-URL="@Path">Usuń Jako Admin</a>
+    }
+    else if (Model.Author.ItsMe)
+    {
+        <a asp-controller="Review" asp-action="Update" asp-route-ID="@Model.ID" asp-route-URL="@Path">Aktualizuj</a>
+        <a asp-controller="Review" asp-action="Delete" asp-route-ID="@Model.ID" asp-route-URL="@Path">Usuń</a>
+    }
+</div>
+<p>@Model.Author</p>
+<p>@Model.rating</p>
+<p>@Model.reviewText</p>

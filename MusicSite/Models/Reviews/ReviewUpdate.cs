@@ -20,6 +20,6 @@ namespace MusicSite.Models.Reviews
         public string albumID { get; internal set; }
         [Required]
         [Range(0, 5, ErrorMessage = "Ocena spoza zakresu")]
-        public byte rating { get; internal set; }
+        public int rating { get; internal set; }
     }
 }

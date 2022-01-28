@@ -19,6 +19,7 @@ namespace MusicSite.Models.Albums
             this.albumTrackList = album.albumTrackList;
             this.releaseDate = album.releaseDate;
             this.reviewCount = album.albumReviews.Count();
+            this.averageRating = album.albumReviews.Where(a => a.albumID == album.ID).Average(a => a.rating);
 
         }
        
@@ -27,7 +28,7 @@ namespace MusicSite.Models.Albums
         public string albumName { get; set; }
         public DateTime releaseDate { get; set; }
         public int reviewCount { get;  set; }
-        public int averageRating { get; set; }
+        public double averageRating { get; set; }
         public string artistName { get; set; }
         public IEnumerable<TrackDB> albumTrackList { get; set; }
         public ICollection<Review> albumReviews { get; set; }

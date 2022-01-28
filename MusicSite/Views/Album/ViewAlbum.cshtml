@@ -4,6 +4,9 @@
 <p>@Model.albumName</p>
 <p>@Model.artistName</p>
 <p>@Model.releaseDate</p>
+<p>
+   @Model.averageRating
+</p>
 
 <p>TrackList</p>
 @foreach (var track in Model.albumTrackList)
@@ -16,7 +19,7 @@
 <p>Recenzje</p>
 @foreach(var review in Model.albumReviews)
             {
-                <p>@review.userID</p>
+                <p>@review.author</p>
                 <p>@review.rating</p>
                 <p>@review.reviewText</p>
             }
@@ -26,4 +29,5 @@
 }
 else
 {<a asp-controller="Review" asp-action="Add" asp-route-AlbumID="@Model.ID" asp-route-returnUrl=@Path>napisz recenzje</a>}
+
 

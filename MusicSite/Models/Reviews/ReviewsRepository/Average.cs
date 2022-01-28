@@ -7,9 +7,9 @@ namespace MusicSite.Models.Reviews.ReviewsRepository
 {
     public partial class ReviewRepository : IReview
     {
-       /* public int Average(string albumID)
+       public double AverageRat(string albumID)
         {
-            return this.db.Reviews.Average(db.Reviews.Where(a => a.albumID == albumID))
-        }*/
+            return this.db.Reviews.Where(a => a.albumID == albumID).Average(a => a.rating);
+        }
     }
 }

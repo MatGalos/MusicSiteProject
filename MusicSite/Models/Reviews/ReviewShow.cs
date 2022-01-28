@@ -16,7 +16,7 @@ namespace MusicSite.Models.Reviews
         public ShowUserModel Author { get; set; }
         [JsonIgnore]
         public String ReturnURL { get; set; }
-        public byte rating { get; set; }
+        public int rating { get; set; }
         public string reviewText { get; set; }
 
         public ReviewShow(Review review, string userID)

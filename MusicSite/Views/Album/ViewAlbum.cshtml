@@ -1,34 +1,123 @@
 ﻿@using MusicSite.Models.Reviews;
 
 @model MusicSite.Models.Albums.ShowAlbum
-<p>@Model.albumName</p>
-<p>@Model.artistName</p>
-<p>@Model.releaseDate</p>
-<p>
-    @Model.averageRating
-</p>
+<style>
+    .presentAlbum {
+        background-color: #b0ccf7 ;
+        justify-content: center;
+    }
+ #content{
+     display:flex;
+ }
+    .presentTracklist {
+        width: 550px;
+        padding-right: 80px;
+        padding-left: 30px;
+        padding-top: 30px;
+        background-color: #c7d7f0;
+    }
+    #reviewSide {
+        width: 550px;
+        padding-left: 30px;
+        padding-top: 30px;
+        background-color: #c7d7f0;
+    }
+tr{
+        padding:20px;
+    }
+td{
+        width:500px;
+        padding:10px;
+    }
+#tracktable{
 
-<p>TrackList</p>
-@foreach (var track in Model.albumTrackList)
-{
-    <p>@track.TrackNumberInAlbum</p>
-    <p>@track.TrackTitle</p>
-    <p>@track.TrackLength</p>
 }
-
-<p>Recenzje</p>
-
-@foreach (ReviewShow show in Model.albumReviews)
-{
-    @await Html.PartialAsync("../Review/Index.cshtml", model: show);
+.traclistinput{
+    width:150px;
+    justify-content:center;
 }
+    .traclistrow {
+        padding: 40px;
+        height: 50px;
+        font-size: 20px;
+        display: inline-block
+    }
+    .showReviews{
 
-@if (User.Identity.IsAuthenticated)
-{
-    @await Html.PartialAsync("../Review/Add.cshtml", model:new ReviewAdd() { albumID=Model.ID})
-}
+    }
+    .showControlers{
 
-else
-{<a asp-controller="Review" asp-action="Add" asp-route-AlbumID="@Model.ID" asp-route-returnUrl=@Path>napisz recenzje</a>}
+    }
+    .modify {
+        background-color: #7a80f0;
+    }
+</style>
 
+<div class="presentAlbum">
+    <table id="album">
+        <tr>
+            <td><h1>Tytuł albumu</h1></td>
+            <td><h1>@Model.albumName</h1></td>
+        </tr>
+        <tr>
+            <td><h3>Nazwa artysty</h3></td>
+            <td><h3>@Model.artistName</h3></td>
+        </tr>
+        <tr>
+            <td><h3>Data wydania</h3></td>
+                     <td><h3>@Model.releaseDate.Date</h3></td>
+        </tr>
+        <tr>
+            <td>
+                <h3>śrendia ocen</h3>
+            </td>
+            <td>
+                <h3>
+                    @Model.averageRating /5
+                </h3>
+                <h4>Na @Model.reviewCount recenzji</h4>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="content">
+    <div class="presentTracklist">
+        <h2>TrackList</h2>
+        <table id="tracktable">
+            @foreach (var track in Model.albumTrackList)
+            {
+            <tr class="traclistrow">
+                <td class="traclistinput">
+                    <p>@track.TrackNumberInAlbum</p>
+                </td>
+                <td class="traclistinput">
+                    <p>@track.TrackTitle</p>
+                </td>
+                <td class="traclistinput">
+                    <p>@track.TrackLength</p>
+                </td> 
+            </tr>
+            }
+        </table>
+    </div>
+    <div id="reviewSide">
+        <div class="showReviews">
+            <h2>Recenzje</h2>
 
+            @foreach (ReviewShow show in Model.albumReviews)
+            {
+                @await Html.PartialAsync("../Review/Index.cshtml", model: show);
+            }
+        </div>
+
+        <div class="showControlers">
+            @if (User.Identity.IsAuthenticated)
+            {
+                @await Html.PartialAsync("../Review/Add.cshtml", model: new ReviewAdd() { albumID = Model.ID })
+            }
+
+            else
+            {<a class="modify" asp-controller="Review" asp-action="Add" asp-route-AlbumID="@Model.ID" asp-route-returnUrl=@Path>napisz recenzje</a>}
+        </div>
+    </div>
+</div>

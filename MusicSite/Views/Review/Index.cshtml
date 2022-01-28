@@ -1,18 +1,47 @@
 ﻿@using MusicSite.Models.Login;
 
 @model MusicSite.Models.Reviews.ReviewShow
+<style>
+    .modify {
+        background-color: #7a80f0;
+    }
+
+    .delete {
+        background-color: #f04343;
+    }
+    table{
+        width:500px;
+    }
+</style>
 
 <div>
     @if (User.IsInRole(Roles.Admin))
     {
-        <a asp-controller="Review" asp-action="DeleteByAdmin" asp-route-ID="@Model.ID" asp-route-URL="@Path">Usuń Jako Admin</a>
+        <a class="delete" asp-controller="Review" asp-action="DeleteByAdmin" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Usuń Jako Admin</a>
     }
     else if (Model.Author.ItsMe)
     {
-        <a asp-controller="Review" asp-action="Update" asp-route-ID="@Model.ID" asp-route-URL="@Path">Aktualizuj</a>
-        <a asp-controller="Review" asp-action="Delete" asp-route-ID="@Model.ID" asp-route-URL="@Path">Usuń</a>
+        <a class="modify" asp-controller="Review" asp-action="Update" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Aktualizuj</a>
+        <a class="delete" asp-controller="Review" asp-action="Delete" asp-route-ID="@Model.ID" asp-route-ReturnURL="@Path">Usuń</a>
     }
 </div>
-<p>@Model.Author</p>
-<p>@Model.rating</p>
-<p>@Model.reviewText</p>
+<table>
+    <tr>
+        <td>
+            <h6>@Model.Author.UserName</h6>
+        </td>
+        </tr>
+    <tr>
+        <td>
+            <h6>
+                Ocena
+                @Model.rating /5
+            </h6>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h6>@Model.reviewText</h6>
+        </td>
+    </tr>
+</table>

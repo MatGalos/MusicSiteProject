@@ -1,11 +1,57 @@
 ﻿@model MusicSite.Models.Login.LoginModel
+<style>
 
+    form {
+        border: 2px solid lightgray;
+        background-color: lightgray;
+        display: inline-block;
+        justify-content: center;
+    }
+
+    input {
+        border-top-style: hidden;
+        border-left-style: hidden;
+        border-right-style: hidden;
+        background-color: lightgray;
+    }
+
+    button {
+        border: 2px solid lightgray;
+        background-color: lightgray;
+    }
+
+        button:hover {
+            transition: 500ms ease;
+            background-color: gray;
+        }
+
+    label {
+        font-size: 20px;
+    }
+
+    input:focus {
+        outline: #adb8b0;
+    }
+
+    .field-validation-error {
+        color: red;
+        font: bold;
+    }
+
+    .input-validation-error {
+        border-bottom-color: red;
+        background-color: #edafaf;
+    }
+</style>
+<div id="center">
 <form asp-action="Login" method="post">
-    <div asp-validation-summary="All"></div>
-    <span asp-validation-for="UserName"></span><br />
+    <div><span asp-validation-for="UserName"></span></div>
+    <label>Nazwa użytkownika</label><br />
     <input asp-for="UserName" /><br />
-    <span asp-validation-for="Password"></span><br />
+    <div><span asp-validation-for="Password"></span></div><br />
+    <label>Hasło</label><br />
     <input asp-for="Password" /><br />
     <input asp-for="ReturnURL" type="hidden" /><br />
     <button type="submit">Zapisz</button>
 </form>
+</div>

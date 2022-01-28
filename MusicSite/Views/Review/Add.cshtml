@@ -1,12 +1,50 @@
 ﻿@model MusicSite.Models.Reviews.ReviewAdd
+    <style>
+        input {
+            border-top-style: hidden;
+            border-left-style: hidden;
+            border-right-style: hidden;
+            background-color: lightgray;
+        }
 
-<br />
-<h4>Dodaj komentarz</h4>
-<hr />
+        button {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
 
-<form asp-controller="Review" asp-action="Add" >
-    <input asp-for="albumID" class="form-control" />
-    <input asp-for="rating" class="form-control">
-    <textarea asp-for="reviewText" class="form-control"></textarea>
-    <input type="submit" value="dodaj recenzje" />
-</form>
+            button:hover {
+                transition: 500ms ease;
+                background-color: gray;
+            }
+
+        label {
+            font-size: 20px;
+        }
+
+        input:focus {
+            outline: #adb8b0;
+        }
+
+        .field-validation-error {
+            color: red;
+            font: bold;
+        }
+
+        .input-validation-error {
+            border-bottom-color: red;
+            background-color: #edafaf;
+        }
+    </style>
+    <br />
+    <h4>Wystaw Ocenę</h4>
+    <hr />
+
+    <form asp-controller="Review" asp-action="Add">
+
+        <input asp-for="albumID" class="form-control" />
+        <label for="rating">wystaw ocenę</label>
+        <input asp-for="rating" class="form-control">
+        <label for="reviewText">Napisz recenzję</label>
+        <textarea asp-for="reviewText" class="form-control"></textarea>
+        <button type="submit">dodaj recenzje</button>
+    </form>

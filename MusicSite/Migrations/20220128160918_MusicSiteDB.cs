@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MusicSite.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class MusicSiteDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -241,8 +241,8 @@ namespace MusicSite.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "hdfsgkjhaskdhadsfk", "5d02765d-f6a6-4db2-8794-1dba39bca086", "Admin", null },
-                    { "asdapsoid[pias", "531efa6d-7100-4a2b-8a90-f357d3dcc7af", "User", null }
+                    { "hdfsgkjhaskdhadsfk", "bda77cd7-b421-4fb5-bc0d-b525da3fa99e", "Admin", null },
+                    { "asdapsoid[pias", "9eb37d49-8865-478b-8d96-bbb60442e861", "User", null }
                 });
 
             migrationBuilder.InsertData(
@@ -250,9 +250,9 @@ namespace MusicSite.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AccountCreationDate", "ConcurrencyStamp", "CreationDate", "Email", "EmailConfirmed", "LastName", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "e5286d13-0492-4fe9-8bd1-ecd46cd94253", 0, new DateTime(2022, 1, 28, 14, 17, 43, 852, DateTimeKind.Local).AddTicks(917), "35f3c29c-526e-4e05-b6f9-4b27cdd51418", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "mateuszgalos@gmail.com", false, "Galos", false, null, "Mateusz", null, "MAGICK90909", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "01b0aab9-4940-413b-9af9-0ead36fe53e8", false, "MAgick90909" },
-                    { "8f403914-479c-4a17-8663-4dfc0be7eec8", 0, new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6404), "4ee2ce93-787c-4cb9-adef-2c6894a10873", new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "user2@gmail.com", false, "Stefanowy", false, null, "Stefan", null, "USER2", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "00f93f5f-b933-4e7e-817f-c1f1e89de880", false, "User2" },
-                    { "862a97d3-1855-4c60-9fac-b2633bbbc73d", 0, new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6474), "b72f1fb3-5675-485f-b8dc-5340e753becd", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin@gmail.com", false, "Admin", false, null, "Admin", null, "ADMIN", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "973064ea-0fb8-41bd-ba4c-63b569b847a6", false, "Admin" }
+                    { "9734c7a3-1563-4db7-9148-4b829dddfb47", 0, new DateTime(2022, 1, 28, 17, 9, 17, 542, DateTimeKind.Local).AddTicks(5137), "63a5f1ba-9367-4608-a3c1-60128df02856", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "mateuszgalos@gmail.com", false, "Galos", false, null, "Mateusz", null, "MAGICK90909", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "31ec3e16-ce57-4b3e-bd08-8d1041fe81a1", false, "MAgick90909" },
+                    { "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1", 0, new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6098), "cc9ca206-33fc-4bb9-b7de-5b6ee7270dc4", new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "user2@gmail.com", false, "Stefanowy", false, null, "Stefan", null, "USER2", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "5b25125e-b2b9-4025-b000-aea0ec729172", false, "User2" },
+                    { "7178bf24-1894-480b-beb8-a733cb3f2eed", 0, new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6321), "2422bbc0-79e6-43eb-9dab-7d7db1aa02df", new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admin@gmail.com", false, "Admin", false, null, "Admin", null, "ADMIN", "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==", null, false, "66c3d6cc-2249-48b5-9b2f-13ed5c93ee9a", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -260,9 +260,9 @@ namespace MusicSite.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "hdfsgkjhaskdhadsfk", "862a97d3-1855-4c60-9fac-b2633bbbc73d" },
-                    { "asdapsoid[pias", "8f403914-479c-4a17-8663-4dfc0be7eec8" },
-                    { "asdapsoid[pias", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" }
+                    { "hdfsgkjhaskdhadsfk", "7178bf24-1894-480b-beb8-a733cb3f2eed" },
+                    { "asdapsoid[pias", "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1" },
+                    { "asdapsoid[pias", "9734c7a3-1563-4db7-9148-4b829dddfb47" }
                 });
 
             migrationBuilder.InsertData(
@@ -270,18 +270,18 @@ namespace MusicSite.Migrations
                 columns: new[] { "ID", "albumID", "rating", "reviewText", "userID" },
                 values: new object[,]
                 {
-                    { "ff37145c-eaa1-4eb6-b6bd-7701c0a61ac2", "1", 3, "Mid", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "0d10f889-dfbe-4c8b-8dcd-8aa7b74a05bc", "2", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "c320cf30-7e79-4edd-97ba-4787e6f913af", "3", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "f9efeb73-eacd-4b97-9559-648d4e7c5a2f", "4", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "87ace1d2-fa1c-4215-baf5-b19b5f73779e", "5", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "c54e8d46-f201-4c7b-9932-4694905ae112", "1", 5, "Good", "8f403914-479c-4a17-8663-4dfc0be7eec8" },
-                    { "7bbb2968-4bbb-4636-9447-a2d201382ee8", "7", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "687aba2d-d525-4da1-ad0e-30faf53dd2eb", "8", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "840c3fa9-b1cc-4e01-a833-7a954ef5c231", "9", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "688e6f1f-ab86-4899-a901-33ef9c9747d4", "10", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "8b01b718-3a88-4d2f-bc82-e2efd0a8a944", "11", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" },
-                    { "dbcdc2c2-36d8-4e19-a84a-14f3ff88e76d", "6", 5, "Good", "e5286d13-0492-4fe9-8bd1-ecd46cd94253" }
+                    { "c307885f-a956-4fd1-8a23-4110a1c6e129", "1", 3, "Mid", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "c80a3538-2c34-40ec-9d1d-1d1a629a2e5d", "2", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "62535928-abd7-4577-8e55-9bbeaf59ae63", "3", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "cb8bc8d2-f263-4139-bd0e-78470e70ec23", "4", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "d5508780-18ba-434c-b3d3-aeabc3e15e78", "5", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "fa87440d-1ce8-46cf-baee-5c9476fb97cf", "1", 5, "Good", "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1" },
+                    { "68f7a425-495c-4137-82b3-7ccbd01f1e91", "7", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "37e4d800-5b83-4ed9-93f4-e7a0affe269c", "8", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "a89e9c5a-67f3-421b-aa4a-0e7b2d6b8b6e", "9", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "ac0c1ca5-954a-4fdd-b0d3-d1246352f2f4", "10", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "0803834e-26a5-4310-b272-46b330464283", "11", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" },
+                    { "f75db586-fcb3-4c0e-bc8c-37900e77d664", "6", 5, "Good", "9734c7a3-1563-4db7-9148-4b829dddfb47" }
                 });
 
             migrationBuilder.InsertData(

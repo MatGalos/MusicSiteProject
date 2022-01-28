@@ -49,13 +49,13 @@ namespace MusicSite.Migrations
                         new
                         {
                             Id = "hdfsgkjhaskdhadsfk",
-                            ConcurrencyStamp = "5d02765d-f6a6-4db2-8794-1dba39bca086",
+                            ConcurrencyStamp = "bda77cd7-b421-4fb5-bc0d-b525da3fa99e",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "asdapsoid[pias",
-                            ConcurrencyStamp = "531efa6d-7100-4a2b-8a90-f357d3dcc7af",
+                            ConcurrencyStamp = "9eb37d49-8865-478b-8d96-bbb60442e861",
                             Name = "User"
                         });
                 });
@@ -147,17 +147,17 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "e5286d13-0492-4fe9-8bd1-ecd46cd94253",
+                            UserId = "9734c7a3-1563-4db7-9148-4b829dddfb47",
                             RoleId = "asdapsoid[pias"
                         },
                         new
                         {
-                            UserId = "8f403914-479c-4a17-8663-4dfc0be7eec8",
+                            UserId = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1",
                             RoleId = "asdapsoid[pias"
                         },
                         new
                         {
-                            UserId = "862a97d3-1855-4c60-9fac-b2633bbbc73d",
+                            UserId = "7178bf24-1894-480b-beb8-a733cb3f2eed",
                             RoleId = "hdfsgkjhaskdhadsfk"
                         });
                 });
@@ -315,99 +315,99 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
-                            ID = "c54e8d46-f201-4c7b-9932-4694905ae112",
+                            ID = "fa87440d-1ce8-46cf-baee-5c9476fb97cf",
                             albumID = "1",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "8f403914-479c-4a17-8663-4dfc0be7eec8"
+                            userID = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1"
                         },
                         new
                         {
-                            ID = "ff37145c-eaa1-4eb6-b6bd-7701c0a61ac2",
+                            ID = "c307885f-a956-4fd1-8a23-4110a1c6e129",
                             albumID = "1",
                             rating = 3,
                             reviewText = "Mid",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "0d10f889-dfbe-4c8b-8dcd-8aa7b74a05bc",
+                            ID = "c80a3538-2c34-40ec-9d1d-1d1a629a2e5d",
                             albumID = "2",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "c320cf30-7e79-4edd-97ba-4787e6f913af",
+                            ID = "62535928-abd7-4577-8e55-9bbeaf59ae63",
                             albumID = "3",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "f9efeb73-eacd-4b97-9559-648d4e7c5a2f",
+                            ID = "cb8bc8d2-f263-4139-bd0e-78470e70ec23",
                             albumID = "4",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "87ace1d2-fa1c-4215-baf5-b19b5f73779e",
+                            ID = "d5508780-18ba-434c-b3d3-aeabc3e15e78",
                             albumID = "5",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "dbcdc2c2-36d8-4e19-a84a-14f3ff88e76d",
+                            ID = "f75db586-fcb3-4c0e-bc8c-37900e77d664",
                             albumID = "6",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "7bbb2968-4bbb-4636-9447-a2d201382ee8",
+                            ID = "68f7a425-495c-4137-82b3-7ccbd01f1e91",
                             albumID = "7",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "687aba2d-d525-4da1-ad0e-30faf53dd2eb",
+                            ID = "37e4d800-5b83-4ed9-93f4-e7a0affe269c",
                             albumID = "8",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "840c3fa9-b1cc-4e01-a833-7a954ef5c231",
+                            ID = "a89e9c5a-67f3-421b-aa4a-0e7b2d6b8b6e",
                             albumID = "9",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "688e6f1f-ab86-4899-a901-33ef9c9747d4",
+                            ID = "ac0c1ca5-954a-4fdd-b0d3-d1246352f2f4",
                             albumID = "10",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         },
                         new
                         {
-                            ID = "8b01b718-3a88-4d2f-bc82-e2efd0a8a944",
+                            ID = "0803834e-26a5-4310-b272-46b330464283",
                             albumID = "11",
                             rating = 5,
                             reviewText = "Good",
-                            userID = "e5286d13-0492-4fe9-8bd1-ecd46cd94253"
+                            userID = "9734c7a3-1563-4db7-9148-4b829dddfb47"
                         });
                 });
 
@@ -1888,10 +1888,10 @@ namespace MusicSite.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e5286d13-0492-4fe9-8bd1-ecd46cd94253",
+                            Id = "9734c7a3-1563-4db7-9148-4b829dddfb47",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 14, 17, 43, 852, DateTimeKind.Local).AddTicks(917),
-                            ConcurrencyStamp = "35f3c29c-526e-4e05-b6f9-4b27cdd51418",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 542, DateTimeKind.Local).AddTicks(5137),
+                            ConcurrencyStamp = "63a5f1ba-9367-4608-a3c1-60128df02856",
                             CreationDate = new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mateuszgalos@gmail.com",
                             EmailConfirmed = false,
@@ -1901,16 +1901,16 @@ namespace MusicSite.Migrations
                             NormalizedUserName = "MAGICK90909",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "01b0aab9-4940-413b-9af9-0ead36fe53e8",
+                            SecurityStamp = "31ec3e16-ce57-4b3e-bd08-8d1041fe81a1",
                             TwoFactorEnabled = false,
                             UserName = "MAgick90909"
                         },
                         new
                         {
-                            Id = "8f403914-479c-4a17-8663-4dfc0be7eec8",
+                            Id = "3c6a2fad-ecd7-4a20-9079-feeaaf1ae2c1",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6404),
-                            ConcurrencyStamp = "4ee2ce93-787c-4cb9-adef-2c6894a10873",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6098),
+                            ConcurrencyStamp = "cc9ca206-33fc-4bb9-b7de-5b6ee7270dc4",
                             CreationDate = new DateTime(1997, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user2@gmail.com",
                             EmailConfirmed = false,
@@ -1920,16 +1920,16 @@ namespace MusicSite.Migrations
                             NormalizedUserName = "USER2",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "00f93f5f-b933-4e7e-817f-c1f1e89de880",
+                            SecurityStamp = "5b25125e-b2b9-4025-b000-aea0ec729172",
                             TwoFactorEnabled = false,
                             UserName = "User2"
                         },
                         new
                         {
-                            Id = "862a97d3-1855-4c60-9fac-b2633bbbc73d",
+                            Id = "7178bf24-1894-480b-beb8-a733cb3f2eed",
                             AccessFailedCount = 0,
-                            AccountCreationDate = new DateTime(2022, 1, 28, 14, 17, 43, 854, DateTimeKind.Local).AddTicks(6474),
-                            ConcurrencyStamp = "b72f1fb3-5675-485f-b8dc-5340e753becd",
+                            AccountCreationDate = new DateTime(2022, 1, 28, 17, 9, 17, 545, DateTimeKind.Local).AddTicks(6321),
+                            ConcurrencyStamp = "2422bbc0-79e6-43eb-9dab-7d7db1aa02df",
                             CreationDate = new DateTime(1999, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
@@ -1939,7 +1939,7 @@ namespace MusicSite.Migrations
                             NormalizedUserName = "ADMIN",
                             PasswordHash = "AQAAAAEAACcQAAAAENLAxThpZFLG18QfD7iVm7rPvN4PwFqICoLU43hI0P0cTBJvk1spWXu/5MsasFGvyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "973064ea-0fb8-41bd-ba4c-63b569b847a6",
+                            SecurityStamp = "66c3d6cc-2249-48b5-9b2f-13ed5c93ee9a",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });

@@ -62,7 +62,7 @@ namespace MusicSite.Models
                 if (!repository.GetUpdate(reviewUpdate.ID, userManager.GetUserId(this.User)).Author.ItsMe) 
                     return this.StatusCode(403);
                 repository.Update(reviewUpdate);
-                return this.Redirect(reviewUpdate?.ReturnURL ?? "/");
+                return this.RedirectToAction("Index", "Album", new { albumId = reviewUpdate.albumID });
             }
             else
             {

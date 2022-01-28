@@ -1,4 +1,49 @@
 ﻿@model MusicSite.Models.Reviews.ReviewShow
+    <style>
+        form {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
+
+        input {
+            border-top-style: hidden;
+            border-left-style: hidden;
+            border-right-style: hidden;
+            background-color: lightgray;
+        }
+
+        button {
+            border: 2px solid lightgray;
+            background-color: lightgray;
+        }
+
+            button:hover {
+                transition: 500ms ease;
+                background-color: gray;
+            }
+
+        label {
+            font-size: 20px;
+        }
+
+        input:focus {
+            outline: #adb8b0;
+        }
+
+        .field-validation-error {
+            color: red;
+            font: bold;
+        }
+
+        .input-validation-error {
+            border-bottom-color: red;
+            background-color: #edafaf;
+        }
+
+        .modify {
+            background-color: #7a80f0;
+        }
+    </style>
 
     <br />
     <h4>Usuń Recenzję</h4>
@@ -7,6 +52,6 @@
     <p>Czy jesteś pewny że chcesz ją usunąć?</p>
 
     <form asp-controller="Review" asp-action="Delete">
-        <input type="submit" value="tak,chcę usunąć" />
-        <a href="@Model.ReturnURL">Nie, to była pomyłka</a>
+        <button type="submit" >tak,chcę usunąć </button>
+        <a class="modify" href="@Model.ReturnURL">Nie, to była pomyłka</a>
     </form>
